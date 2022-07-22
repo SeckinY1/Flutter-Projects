@@ -41,15 +41,55 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
           child: IntrinsicHeight(
         child: Row(
           children: [
-            dropDownButtonYapisi(renklerIlkBasamak),
-            dropDownButtonYapisi(renkler)
+            /*dropDownButtonYapisi(renklerIlkBasamak, _renkDegeri1),
+            dropDownButtonYapisi(renkler, _renkDegeri2)*/
+            DropdownButton(
+                hint: Text("Değer Giriniz"),
+                items: renklerIlkBasamak
+                    .map((oAnkiRenk, oAnkiDeger) {
+                      return MapEntry(
+                          oAnkiRenk,
+                          DropdownMenuItem(
+                            child: Text(oAnkiRenk),
+                            value: oAnkiDeger,
+                          ));
+                    })
+                    .values
+                    .toList(),
+                onChanged: (int? deger) {
+                  setState(() {
+                    _renkDegeri1 = deger;
+                    print("Renk değeri 1: $_renkDegeri1");
+                  });
+                },
+                value: _renkDegeri1),
+            DropdownButton(
+                hint: Text("Değer Giriniz"),
+                items: renkler
+                    .map((oAnkiRenk, oAnkiDeger) {
+                      return MapEntry(
+                          oAnkiRenk,
+                          DropdownMenuItem(
+                            child: Text(oAnkiRenk),
+                            value: oAnkiDeger,
+                          ));
+                    })
+                    .values
+                    .toList(),
+                onChanged: (int? deger2) {
+                  setState(() {
+                    _renkDegeri2 = deger2;
+                    print("Renk değeri 2: $_renkDegeri2");
+                  });
+                })
           ],
         ),
       )),
     );
   }
 
-  DropdownButton<int> dropDownButtonYapisi(Map<String, int> gelecekMap) {
+  DropdownButton<int> dropDownButtonYapisi(
+      Map<String, int> gelecekMap, gelenRenkDegeri) {
     return DropdownButton(
         items: gelecekMap
             .map((oAnkiRenk, oAnkiDeger) {
@@ -62,12 +102,12 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
             })
             .values
             .toList(),
-        value: _renkDegeri1,
         onChanged: (int? deger) {
           setState(() {
-            _renkDegeri1 = deger;
+            gelenRenkDegeri = deger;
             print(_renkDegeri1);
           });
-        });
+        },
+        value: gelenRenkDegeri);
   }
 }
