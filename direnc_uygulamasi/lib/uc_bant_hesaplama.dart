@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class UcBantHesaplama extends StatefulWidget {
@@ -10,6 +12,8 @@ class UcBantHesaplama extends StatefulWidget {
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   int? _renkDegeri1 = null;
   int? _renkDegeri2 = null;
+  int? _renkDegeri3 = null;
+  double? _sonuc = null;
   Map<String, int> renklerIlkBasamak = {
     "Kahverengi": 1,
     "Kırmızı": 2,
@@ -38,76 +42,85 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     return Scaffold(
       appBar: AppBar(title: Text("Üç Bantlı Direnç Hesaplama")),
       body: Center(
-          child: IntrinsicHeight(
-        child: Row(
+          child: Expanded(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            /*dropDownButtonYapisi(renklerIlkBasamak, _renkDegeri1),
-            dropDownButtonYapisi(renkler, _renkDegeri2)*/
-            DropdownButton(
-                hint: Text("Değer Giriniz"),
-                items: renklerIlkBasamak
-                    .map((oAnkiRenk, oAnkiDeger) {
-                      return MapEntry(
-                          oAnkiRenk,
-                          DropdownMenuItem(
-                            child: Text(oAnkiRenk),
-                            value: oAnkiDeger,
-                          ));
-                    })
-                    .values
-                    .toList(),
-                onChanged: (int? deger) {
-                  setState(() {
-                    _renkDegeri1 = deger;
-                    print("Renk değeri 1: $_renkDegeri1");
-                  });
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                /*dropDownButtonYapisi(renklerIlkBasamak, _renkDegeri1),
+              dropDownButtonYapisi(renkler, _renkDegeri2)*/
+                DropdownButton(
+                    hint: Text("Değer Giriniz"),
+                    items: renklerIlkBasamak
+                        .map((oAnkiRenk, oAnkiDeger) {
+                          return MapEntry(
+                              oAnkiRenk,
+                              DropdownMenuItem(
+                                child: Text(oAnkiRenk),
+                                value: oAnkiDeger,
+                              ));
+                        })
+                        .values
+                        .toList(),
+                    onChanged: (int? deger) {
+                      setState(() {
+                        _renkDegeri1 = deger;
+                      });
+                    },
+                    value: _renkDegeri1),
+                DropdownButton(
+                  hint: Text("Değer Giriniz"),
+                  items: renkler
+                      .map((oAnkiRenk, oAnkiDeger) {
+                        return MapEntry(
+                            oAnkiRenk,
+                            DropdownMenuItem(
+                              child: Text(oAnkiRenk),
+                              value: oAnkiDeger,
+                            ));
+                      })
+                      .values
+                      .toList(),
+                  onChanged: (int? deger2) {
+                    setState(() {
+                      _renkDegeri2 = deger2;
+                    });
+                  },
+                  value: _renkDegeri2,
+                ),
+                DropdownButton(
+                  hint: Text("Değer Giriniz"),
+                  items: renkler
+                      .map((oAnkiRenk, oAnkiDeger) {
+                        return MapEntry(
+                            oAnkiRenk,
+                            DropdownMenuItem(
+                                child: Text(oAnkiRenk), value: oAnkiDeger));
+                      })
+                      .values
+                      .toList(),
+                  onChanged: (int? deger3) {
+                    setState(() {
+                      _renkDegeri3 = deger3;
+                    });
+                  },
+                  value: _renkDegeri3,
+                )
+              ],
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
+                          pow(10, _renkDegeri3!).toInt()) /
+                      pow(10, 6).toInt();
+                  print(_sonuc);
                 },
-                value: _renkDegeri1),
-            DropdownButton(
-                hint: Text("Değer Giriniz"),
-                items: renkler
-                    .map((oAnkiRenk, oAnkiDeger) {
-                      return MapEntry(
-                          oAnkiRenk,
-                          DropdownMenuItem(
-                            child: Text(oAnkiRenk),
-                            value: oAnkiDeger,
-                          ));
-                    })
-                    .values
-                    .toList(),
-                onChanged: (int? deger2) {
-                  setState(() {
-                    _renkDegeri2 = deger2;
-                    print("Renk değeri 2: $_renkDegeri2");
-                  });
-                })
+                child: Text("Hesapla"))
           ],
         ),
       )),
     );
-  }
-
-  DropdownButton<int> dropDownButtonYapisi(
-      Map<String, int> gelecekMap, gelenRenkDegeri) {
-    return DropdownButton(
-        items: gelecekMap
-            .map((oAnkiRenk, oAnkiDeger) {
-              return MapEntry(
-                  oAnkiRenk,
-                  DropdownMenuItem(
-                    child: Text(oAnkiRenk),
-                    value: oAnkiDeger,
-                  ));
-            })
-            .values
-            .toList(),
-        onChanged: (int? deger) {
-          setState(() {
-            gelenRenkDegeri = deger;
-            print(_renkDegeri1);
-          });
-        },
-        value: gelenRenkDegeri);
   }
 }
