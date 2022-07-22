@@ -10,10 +10,10 @@ class UcBantHesaplama extends StatefulWidget {
 }
 
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
-  int? _renkDegeri1 = null;
-  int? _renkDegeri2 = null;
-  int? _renkDegeri3 = null;
-  double? _sonuc = null;
+  int? _renkDegeri1;
+  int? _renkDegeri2;
+  int? _renkDegeri3;
+  double? _sonuc;
   Map<String, int> renklerIlkBasamak = {
     "Kahverengi": 1,
     "Kırmızı": 2,
@@ -110,14 +110,37 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 )
               ],
             ),
-            ElevatedButton(
-                onPressed: () {
-                  _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
-                          pow(10, _renkDegeri3!).toInt()) /
-                      pow(10, 6).toInt();
-                  print(_sonuc);
-                },
-                child: Text("Hesapla"))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
+                              pow(10, _renkDegeri3!).toDouble();
+                          print(_sonuc);
+                        });
+                      },
+                      child: Text("Ω")),
+                ),
+                Container(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
+                                  pow(10, _renkDegeri3!).toInt()) /
+                              pow(10, 6).toInt();
+                          print(_sonuc);
+                        });
+                      },
+                      child: Text("kΩ")),
+                ),
+              ],
+            ),
+            Text(
+              "Direnç Değeri: $_sonuc kΩ",
+            )
           ],
         ),
       )),
