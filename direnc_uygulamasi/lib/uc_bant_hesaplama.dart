@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class UcBantHesaplama extends StatefulWidget {
-  UcBantHesaplama({Key? key}) : super(key: key);
+  const UcBantHesaplama({Key? key}) : super(key: key);
 
   @override
   State<UcBantHesaplama> createState() => _UcBantHesaplamaState();
@@ -40,9 +40,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Üç Bantlı Direnç Hesaplama")),
+      appBar: AppBar(title: const Text("Üç Bantlı Direnç Hesaplama")),
       body: Center(
-          child: Expanded(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,15 +50,26 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               children: [
                 /*dropDownButtonYapisi(renklerIlkBasamak, _renkDegeri1),
               dropDownButtonYapisi(renkler, _renkDegeri2)*/
-                DropdownButton(
-                    hint: Text("Değer Giriniz"),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: DropdownButton(
+                    alignment: Alignment.center,
+                    hint: const Text(
+                      "Değer Giriniz",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
                     items: renklerIlkBasamak
                         .map((oAnkiRenk, oAnkiDeger) {
                           return MapEntry(
                               oAnkiRenk,
                               DropdownMenuItem(
-                                child: Text(oAnkiRenk),
                                 value: oAnkiDeger,
+                                child: Text(oAnkiRenk),
                               ));
                         })
                         .values
@@ -69,81 +79,138 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         _renkDegeri1 = deger;
                       });
                     },
-                    value: _renkDegeri1),
-                DropdownButton(
-                  hint: Text("Değer Giriniz"),
-                  items: renkler
-                      .map((oAnkiRenk, oAnkiDeger) {
-                        return MapEntry(
-                            oAnkiRenk,
-                            DropdownMenuItem(
-                              child: Text(oAnkiRenk),
-                              value: oAnkiDeger,
-                            ));
-                      })
-                      .values
-                      .toList(),
-                  onChanged: (int? deger2) {
-                    setState(() {
-                      _renkDegeri2 = deger2;
-                    });
-                  },
-                  value: _renkDegeri2,
+                    value: _renkDegeri1,
+                    iconSize: 30,
+                    iconEnabledColor: Colors.blue,
+                  ),
                 ),
-                DropdownButton(
-                  hint: Text("Değer Giriniz"),
-                  items: renkler
-                      .map((oAnkiRenk, oAnkiDeger) {
-                        return MapEntry(
-                            oAnkiRenk,
-                            DropdownMenuItem(
-                                child: Text(oAnkiRenk), value: oAnkiDeger));
-                      })
-                      .values
-                      .toList(),
-                  onChanged: (int? deger3) {
-                    setState(() {
-                      _renkDegeri3 = deger3;
-                    });
-                  },
-                  value: _renkDegeri3,
-                )
+                const SizedBox(
+                  width: 5,
+                ),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: DropdownButton(
+                    alignment: Alignment.center,
+                    hint: const Text(
+                      "Değer Giriniz",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    items: renkler
+                        .map((oAnkiRenk, oAnkiDeger) {
+                          return MapEntry(
+                              oAnkiRenk,
+                              DropdownMenuItem(
+                                value: oAnkiDeger,
+                                child: Text(oAnkiRenk),
+                              ));
+                        })
+                        .values
+                        .toList(),
+                    onChanged: (int? deger2) {
+                      setState(() {
+                        _renkDegeri2 = deger2;
+                      });
+                    },
+                    value: _renkDegeri2,
+                    iconSize: 30,
+                    iconEnabledColor: Colors.blue,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.blue),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: DropdownButton(
+                    alignment: Alignment.center,
+                    hint: const Text(
+                      "Değer Giriniz",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    items: renkler
+                        .map((oAnkiRenk, oAnkiDeger) {
+                          return MapEntry(
+                              oAnkiRenk,
+                              DropdownMenuItem(
+                                  value: oAnkiDeger, child: Text(oAnkiRenk)));
+                        })
+                        .values
+                        .toList(),
+                    onChanged: (int? deger3) {
+                      setState(() {
+                        _renkDegeri3 = deger3;
+                      });
+                    },
+                    value: _renkDegeri3,
+                    iconSize: 30,
+                    iconEnabledColor: Colors.blue,
+                  ),
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
-                              pow(10, _renkDegeri3!).toDouble();
-                          print(_sonuc);
-                        });
-                      },
-                      child: Text("Ω")),
+                ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
+                    onPressed: () {
+                      setState(() {
+                        _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
+                            pow(10, _renkDegeri3!).toDouble();
+                        print(_sonuc);
+                      });
+                    },
+                    child: const Text(
+                      "Ω",
+                      style: TextStyle(fontSize: 20),
+                    )),
+                const SizedBox(
+                  width: 30,
                 ),
-                Container(
-                  child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
-                                  pow(10, _renkDegeri3!).toInt()) /
-                              pow(10, 6).toInt();
-                          print(_sonuc);
-                        });
-                      },
-                      child: Text("kΩ")),
-                ),
+                ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
+                    onPressed: () {
+                      setState(() {
+                        _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
+                                pow(10, _renkDegeri3!).toInt()) /
+                            pow(10, 6).toInt();
+                        print(_sonuc);
+                      });
+                    },
+                    child: const Text(
+                      "kΩ",
+                      style: TextStyle(fontSize: 20),
+                    )),
               ],
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Text(
               "Direnç Değeri: $_sonuc kΩ",
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400),
             )
           ],
         ),
-      )),
+      ),
     );
   }
 }
