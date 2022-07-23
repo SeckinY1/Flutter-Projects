@@ -13,7 +13,10 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   int? _renkDegeri1;
   int? _renkDegeri2;
   int? _renkDegeri3;
+  String _birim = "";
+  String _deger = "";
   double? _sonuc;
+
   Map<String, int> renklerIlkBasamak = {
     "Kahverengi": 1,
     "Kırmızı": 2,
@@ -169,9 +172,20 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
                     onPressed: () {
                       setState(() {
-                        _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
-                            pow(10, _renkDegeri3!).toDouble();
-                        print(_sonuc);
+                        if (_renkDegeri1 == null ||
+                            _renkDegeri2 == null ||
+                            _renkDegeri3 == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                      "Eksik veya hatalı ifade girişi yaptınız")));
+                        } else {
+                          _birim = "Ω";
+                          _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
+                              pow(10, _renkDegeri3!).toDouble();
+                          print(_sonuc);
+                          _deger = _sonuc.toString();
+                        }
                       });
                     },
                     child: const Text(
@@ -186,10 +200,20 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
                     onPressed: () {
                       setState(() {
-                        _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
-                                pow(10, _renkDegeri3!).toInt()) /
-                            pow(10, 6).toInt();
-                        print(_sonuc);
+                        if (_renkDegeri1 == null ||
+                            _renkDegeri2 == null ||
+                            _renkDegeri3 == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                              content: Text(
+                                  "Eksik veya hatalı ifade girişi yaptınız.")));
+                        } else {
+                          _birim = "kΩ";
+                          _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
+                                  pow(10, _renkDegeri3!).toInt()) /
+                              pow(10, 6).toInt();
+                          print(_sonuc);
+                          _deger = _sonuc.toString();
+                        }
                       });
                     },
                     child: const Text(
@@ -202,7 +226,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               height: 20,
             ),
             Text(
-              "Direnç Değeri: $_sonuc kΩ",
+              "Direnç Değeri: $_deger $_birim",
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
