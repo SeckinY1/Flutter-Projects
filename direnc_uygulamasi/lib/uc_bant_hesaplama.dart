@@ -10,14 +10,14 @@ class UcBantHesaplama extends StatefulWidget {
 }
 
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
-  int? _renkDegeri1;
-  int? _renkDegeri2;
-  int? _renkDegeri3;
+  double? _renkDegeri1;
+  double? _renkDegeri2;
+  double? _renkDegeri3;
   String _birim = "";
   String _deger = "";
   double? _sonuc;
 
-  Map<String, int> renklerIlkBasamak = {
+  Map<String, double> renklerIlkBasamak = {
     "Kahverengi": 1,
     "Kırmızı": 2,
     "Turuncu": 3,
@@ -28,7 +28,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     "Gri": 8,
     "Beyaz": 9
   };
-  Map<String, int> renkler = {
+  Map<String, double> renkler = {
     "Siyah": 0,
     "Kahverengi": 1,
     "Kırmızı": 2,
@@ -77,9 +77,9 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         })
                         .values
                         .toList(),
-                    onChanged: (int? deger) {
+                    onChanged: (double? deger1) {
                       setState(() {
-                        _renkDegeri1 = deger;
+                        _renkDegeri1 = deger1;
                       });
                     },
                     value: _renkDegeri1,
@@ -114,7 +114,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         })
                         .values
                         .toList(),
-                    onChanged: (int? deger2) {
+                    onChanged: (double? deger2) {
                       setState(() {
                         _renkDegeri2 = deger2;
                       });
@@ -149,7 +149,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         })
                         .values
                         .toList(),
-                    onChanged: (int? deger3) {
+                    onChanged: (double? deger3) {
                       setState(() {
                         _renkDegeri3 = deger3;
                       });
@@ -210,7 +210,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                           _birim = "kΩ";
                           _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
                                   pow(10, _renkDegeri3!).toInt()) /
-                              pow(10, 6).toInt();
+                              pow(10, 3).toInt();
                           print(_sonuc);
                           _deger = _sonuc.toString();
                         }

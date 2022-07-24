@@ -1,3 +1,4 @@
+import 'package:direnc_uygulamasi/uc_bant_hesaplama.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Resistor Calculate",
-      home:
-          BantSecimi(isFirstStep: true, text: "İlk Band", width: 10, key: key),
+      home:UcBantHesaplama()
     );
   }
 }
