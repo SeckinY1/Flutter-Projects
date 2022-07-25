@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
 import 'package:flutter/material.dart';
 
 class UcBantHesaplama extends StatefulWidget {
@@ -10,12 +12,13 @@ class UcBantHesaplama extends StatefulWidget {
 }
 
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
-  double? _renkDegeri1;
-  double? _renkDegeri2;
-  double? _renkDegeri3;
-  String _birim = "";
-  String _deger = "";
-  double? _sonuc;
+  double? renkDegeri1;
+  double? renkDegeri2;
+  double? renkDegeri3;
+  String birim = "";
+  String deger = "";
+  double? sonuc;
+  double? bolum;
 
   Map<String, double> renklerIlkBasamak = {
     "Kahverengi": 1,
@@ -40,6 +43,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     "Gri": 8,
     "Beyaz": 9
   };
+
+  Map<String, double> bolumMap = {"Ω": 1, "kΩ": 1000, "MΩ": 1000000};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,10 +84,10 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         .toList(),
                     onChanged: (double? deger1) {
                       setState(() {
-                        _renkDegeri1 = deger1;
+                        renkDegeri1 = deger1!;
                       });
                     },
-                    value: _renkDegeri1,
+                    value: renkDegeri1,
                     iconSize: 30,
                     iconEnabledColor: Colors.blue,
                   ),
@@ -116,10 +121,10 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         .toList(),
                     onChanged: (double? deger2) {
                       setState(() {
-                        _renkDegeri2 = deger2;
+                        renkDegeri2 = deger2!;
                       });
                     },
-                    value: _renkDegeri2,
+                    value: renkDegeri2,
                     iconSize: 30,
                     iconEnabledColor: Colors.blue,
                   ),
@@ -145,20 +150,30 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                           return MapEntry(
                               oAnkiRenk,
                               DropdownMenuItem(
-                                  value: oAnkiDeger, child: Text(oAnkiRenk)));
+                                value: oAnkiDeger,
+                                child: Text(oAnkiRenk),
+                              ));
                         })
                         .values
                         .toList(),
                     onChanged: (double? deger3) {
                       setState(() {
-                        _renkDegeri3 = deger3;
+                        renkDegeri3 = deger3;
                       });
                     },
-                    value: _renkDegeri3,
+                    value: renkDegeri3,
                     iconSize: 30,
                     iconEnabledColor: Colors.blue,
                   ),
                 ),
+                /*BantSecimi(
+                    gelenRenkler: renkler,
+                    gelenRenkDegeri: renkDegeri3,
+                    onPressed: (double? deger3) {
+                      setState(() {
+                        renkDegeri3 = deger3;
+                      });
+                    })*/
               ],
             ),
             const SizedBox(
@@ -172,19 +187,19 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
                     onPressed: () {
                       setState(() {
-                        if (_renkDegeri1 == null ||
-                            _renkDegeri2 == null ||
-                            _renkDegeri3 == null) {
+                        if (renkDegeri1 == null ||
+                            renkDegeri2 == null ||
+                            renkDegeri3 == null) {
                           ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
                                       "Eksik veya hatalı ifade girişi yaptınız")));
                         } else {
-                          _birim = "Ω";
-                          _sonuc = ((_renkDegeri1! * 10) + _renkDegeri2!) *
-                              pow(10, _renkDegeri3!).toDouble();
-                          print(_sonuc);
-                          _deger = _sonuc.toString();
+                          birim = "Ω";
+                          sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
+                              pow(10, renkDegeri3!).toDouble();
+                          print(sonuc);
+                          deger = sonuc.toString();
                         }
                       });
                     },
@@ -200,19 +215,19 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
                     onPressed: () {
                       setState(() {
-                        if (_renkDegeri1 == null ||
-                            _renkDegeri2 == null ||
-                            _renkDegeri3 == null) {
+                        if (renkDegeri1 == null ||
+                            renkDegeri2 == null ||
+                            renkDegeri3 == null) {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text(
                                   "Eksik veya hatalı ifade girişi yaptınız.")));
                         } else {
-                          _birim = "kΩ";
-                          _sonuc = (((_renkDegeri1! * 10) + _renkDegeri2!) *
-                                  pow(10, _renkDegeri3!).toInt()) /
-                              pow(10, 3).toInt();
-                          print(_sonuc);
-                          _deger = _sonuc.toString();
+                          birim = "kΩ";
+                          sonuc = (((renkDegeri1! * 10) + renkDegeri2!) *
+                                  pow(10, renkDegeri3!).toInt()) /
+                              pow(10, 3);
+                          print(sonuc);
+                          deger = sonuc.toString();
                         }
                       });
                     },
@@ -220,13 +235,34 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                       "kΩ",
                       style: TextStyle(fontSize: 20),
                     )),
+                /*DropdownButton( Bu DropdownButton ohm, kohm ve megaohm seçenekleri    
+                                  ve bir hesapla butonu için oluşturulmuştur. Ek olarak 
+                                  hesapla butonu altında yapılan ve sonuc değişkeni içerisine kayıt edilen işlemde bu fonksiyonun çalışması için bölüm kısmına **bolum!.toDouble()** komutu yapıştırılmalıdır.
+                  items: bolumMap
+                      .map((oAnkiBirim, oAnkiDeger) {
+                        return MapEntry(
+                            oAnkiBirim,
+                            DropdownMenuItem(
+                              value: oAnkiDeger,
+                              child: Text(oAnkiBirim),
+                            ));
+                      })
+                      .values
+                      .toList(),
+                  onChanged: (double? deger) {
+                    setState(() {
+                      bolum = deger;
+                    });
+                  },
+                  value: bolum,
+                )*/
               ],
             ),
             const SizedBox(
               height: 20,
             ),
             Text(
-              "Direnç Değeri: $_deger $_birim",
+              "Direnç Değeri: $deger $birim",
               style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,

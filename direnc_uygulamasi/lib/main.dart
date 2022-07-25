@@ -1,5 +1,4 @@
 import 'package:direnc_uygulamasi/uc_bant_hesaplama.dart';
-import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:flutter/material.dart';
 
 void main() {
