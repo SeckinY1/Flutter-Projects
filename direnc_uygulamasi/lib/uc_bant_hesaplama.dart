@@ -56,8 +56,6 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                /*dropDownButtonYapisi(renklerIlkBasamak, _renkDegeri1),
-              dropDownButtonYapisi(renkler, _renkDegeri2)*/
                 DecoratedBox(
                   decoration: BoxDecoration(
                       border: Border.all(width: 2, color: Colors.blue),
@@ -235,6 +233,32 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                       "kΩ",
                       style: TextStyle(fontSize: 20),
                     )),
+
+                /*Buton(
+                  renkDegeri1: renkDegeri1,
+                  renkDegeri2: renkDegeri2,
+                  renkDegeri3: renkDegeri3,
+                  childDegeri: "Ω",
+                  onPressed: () {
+                    setState(() {
+                      if (renkDegeri1 == null ||
+                          renkDegeri2 == null ||
+                          renkDegeri3 == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text(
+                                    "Eksik veya hatalı ifade girişi yaptınız")));
+                      } else {
+                        birim = "Ω";
+                        sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
+                            pow(10, renkDegeri3!).toDouble();
+                        print(sonuc);
+                        deger = sonuc.toString();
+                      }
+                    });
+                  },
+                )*/
+
                 /*DropdownButton( Bu DropdownButton ohm, kohm ve megaohm seçenekleri    
                                   ve bir hesapla butonu için oluşturulmuştur. Ek olarak 
                                   hesapla butonu altında yapılan ve sonuc değişkeni içerisine kayıt edilen işlemde bu fonksiyonun çalışması için bölüm kısmına **bolum!.toDouble()** komutu yapıştırılmalıdır.
