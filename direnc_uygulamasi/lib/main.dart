@@ -14,3 +14,5 @@ class MyApp extends StatelessWidget {
         title: "Resistor Calculate", home: UcBantHesaplama());
   }
 }
+
+          

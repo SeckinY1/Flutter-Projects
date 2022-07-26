@@ -6,6 +6,7 @@ class BantSecimi extends StatelessWidget {
   final double? gelenRenkDegeri;
   final double? width;
   final double? height;
+  final String? text;
 
   const BantSecimi(
       {Key? key,
@@ -13,7 +14,8 @@ class BantSecimi extends StatelessWidget {
       required this.gelenRenkDegeri,
       required this.onPressed,
       required this.width,
-      required this.height})
+      required this.height,
+      required this.text})
       : super(key: key);
 
   @override
@@ -27,9 +29,9 @@ class BantSecimi extends StatelessWidget {
             borderRadius: BorderRadius.circular(5)),
         child: DropdownButton(
           alignment: Alignment.center,
-          hint: const Text(
-            "Değer Giriniz",
-            style: TextStyle(
+          hint: Text(
+            text!,
+            style: const TextStyle(
                 color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
           ),
           items: gelenRenkler!
