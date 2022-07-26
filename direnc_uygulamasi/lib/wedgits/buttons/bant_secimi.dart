@@ -5,7 +5,7 @@ class BantSecimi extends StatelessWidget {
   final Function(double?)? onPressed;
   final double? gelenRenkDegeri;
 
-  BantSecimi(
+  const BantSecimi(
       {Key? key, this.gelenRenkler, this.gelenRenkDegeri, this.onPressed})
       : super(key: key);
 

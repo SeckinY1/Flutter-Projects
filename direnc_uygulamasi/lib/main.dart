@@ -1,4 +1,4 @@
-import 'package:direnc_uygulamasi/uc_bant_hesaplama.dart';
+import 'package:direnc_uygulamasi/screens/uc_bant_hesapla.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,9 +8,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Resistor Calculate",
-      home:UcBantHesaplama()
-    );
+    return const MaterialApp(
+        title: "Resistor Calculate", home: UcBantHesaplama());
   }
 }
