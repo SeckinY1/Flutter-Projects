@@ -45,51 +45,52 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(flex: 2, child: Container(color: Colors.red)),
-          Expanded(
-              flex: 4,
-              child: Column(
-                children: [
-                  BantSecimi(
-                      width: 300,
-                      height: 50,
-                      gelenRenkler: renklerIlkBasamak,
-                      gelenRenkDegeri: renkDegeri1,
-                      onPressed: (double? deger1) {
-                        setState(() {
-                          renkDegeri1 = deger1;
-                        });
-                      }),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  BantSecimi(
-                      width: 300,
-                      height: 50,
-                      gelenRenkler: renkler,
-                      gelenRenkDegeri: renkDegeri2,
-                      onPressed: (double? deger2) {
-                        setState(() {
-                          renkDegeri2 = deger2;
-                        });
-                      }),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  BantSecimi(
-                      width: 300,
-                      height: 50,
-                      gelenRenkler: renkler,
-                      gelenRenkDegeri: renkDegeri3,
-                      onPressed: (double? deger3) {
-                        setState(() {
-                          renkDegeri3 = deger3;
-                        });
-                      })
-                ],
-              )),
-          Expanded(flex: 2, child: Container(color: Colors.yellow)),
-          Expanded(flex: 2, child: Container(color: Colors.black)),
+          Container(height: 120, color: Colors.red),
+          SizedBox(
+            height: 297.445,
+            child: Column(
+              children: [
+                BantSecimi(
+                    width: 300,
+                    height: 50,
+                    gelenRenkler: renklerIlkBasamak,
+                    gelenRenkDegeri: renkDegeri1,
+                    onPressed: (double? deger1) {
+                      setState(() {
+                        renkDegeri1 = deger1;
+                      });
+                    }),
+                const SizedBox(
+                  height: 20,
+                ),
+                BantSecimi(
+                    width: 300,
+                    height: 50,
+                    gelenRenkler: renkler,
+                    gelenRenkDegeri: renkDegeri2,
+                    onPressed: (double? deger2) {
+                      setState(() {
+                        renkDegeri2 = deger2;
+                      });
+                    }),
+                const SizedBox(
+                  height: 20,
+                ),
+                BantSecimi(
+                    width: 300,
+                    height: 50,
+                    gelenRenkler: renkler,
+                    gelenRenkDegeri: renkDegeri3,
+                    onPressed: (double? deger3) {
+                      setState(() {
+                        renkDegeri3 = deger3;
+                      });
+                    })
+              ],
+            ),
+          ),
+          Container(height: 120, color: Colors.green),
+          Container(height: 120, color: Colors.yellow),
         ],
       ),
     );
