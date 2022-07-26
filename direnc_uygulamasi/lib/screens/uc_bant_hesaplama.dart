@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
 import 'package:flutter/material.dart';
 
 class UcBantHesaplama extends StatefulWidget {
@@ -12,6 +15,10 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   double? renkDegeri1;
   double? renkDegeri2;
   double? renkDegeri3;
+  String birim = "";
+  String deger = "";
+  double? sonuc;
+  double? bolum;
 
   Map<String, double> renklerIlkBasamak = {
     "Kahverengi": 1,
@@ -36,6 +43,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     "Gri": 8,
     "Beyaz": 9
   };
+  Map<String, double> bolumMap = {"Ω": 1, "kΩ": 1000, "MΩ": 1000000};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +51,12 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
         title: const Text(" Üç Bantlı Direnç Hesaplama"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(height: 120, color: Colors.red),
           SizedBox(
-            height: 297.445,
+            height: 240,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BantSecimi(
                     width: 300,
@@ -89,8 +97,38 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               ],
             ),
           ),
-          Container(height: 120, color: Colors.green),
           Container(height: 120, color: Colors.yellow),
+          SizedBox(
+            height: 120,
+            child: Row(
+              children: [
+                Buton(
+                  renkDegeri1: renkDegeri1,
+                  renkDegeri2: renkDegeri2,
+                  renkDegeri3: renkDegeri3,
+                  childDegeri: "Ω",
+                  onPressed: () {
+                    setState(() {
+                      if (renkDegeri1 == null ||
+                          renkDegeri2 == null ||
+                          renkDegeri3 == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text(
+                                    "Eksik veya hatalı ifade girişi yaptınız")));
+                      } else {
+                        birim = "Ω";
+                        sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
+                            pow(10, renkDegeri3!).toDouble();
+                        print(sonuc);
+                        deger = sonuc.toString();
+                      }
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
