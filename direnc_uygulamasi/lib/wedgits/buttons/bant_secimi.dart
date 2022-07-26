@@ -12,8 +12,8 @@ class BantSecimi extends StatelessWidget {
       required this.gelenRenkler,
       required this.gelenRenkDegeri,
       required this.onPressed,
-      this.width,
-      this.height})
+      required this.width,
+      required this.height})
       : super(key: key);
 
   @override

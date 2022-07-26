@@ -51,6 +51,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               child: Column(
                 children: [
                   BantSecimi(
+                      width: 300,
+                      height: 50,
                       gelenRenkler: renklerIlkBasamak,
                       gelenRenkDegeri: renkDegeri1,
                       onPressed: (double? deger1) {
@@ -59,9 +61,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         });
                       }),
                   const SizedBox(
-                    height: 5,
+                    height: 20,
                   ),
                   BantSecimi(
+                      width: 300,
+                      height: 50,
                       gelenRenkler: renkler,
                       gelenRenkDegeri: renkDegeri2,
                       onPressed: (double? deger2) {
@@ -70,9 +74,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         });
                       }),
                   const SizedBox(
-                    height: 5,
+                    height: 20,
                   ),
                   BantSecimi(
+                      width: 300,
+                      height: 50,
                       gelenRenkler: renkler,
                       gelenRenkDegeri: renkDegeri3,
                       onPressed: (double? deger3) {
