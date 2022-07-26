@@ -27,28 +27,33 @@ class BantSecimi extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(width: 2, color: Colors.blue),
             borderRadius: BorderRadius.circular(5)),
-        child: DropdownButton(
-          alignment: Alignment.center,
-          hint: Text(
-            text!,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+        child: Padding(
+          padding: EdgeInsets.only(left: 15),
+          child: DropdownButton(
+            hint: Text(
+              text!,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            items: gelenRenkler!
+                .map((oAnkiRenk, oAnkiDeger) {
+                  return MapEntry(
+                      oAnkiRenk,
+                      DropdownMenuItem(
+                        value: oAnkiDeger,
+                        child: Text(oAnkiRenk),
+                      ));
+                })
+                .values
+                .toList(),
+            onChanged: onPressed,
+            value: gelenRenkDegeri,
+            iconSize: 30,
+            iconEnabledColor: Colors.blue,
+            isExpanded: true,
           ),
-          items: gelenRenkler!
-              .map((oAnkiRenk, oAnkiDeger) {
-                return MapEntry(
-                    oAnkiRenk,
-                    DropdownMenuItem(
-                      value: oAnkiDeger,
-                      child: Text(oAnkiRenk),
-                    ));
-              })
-              .values
-              .toList(),
-          onChanged: onPressed,
-          value: gelenRenkDegeri,
-          iconSize: 30,
-          iconEnabledColor: Colors.blue,
         ),
       ),
     );
