@@ -7,6 +7,7 @@ class BantSecimi extends StatelessWidget {
   final double? width;
   final double? height;
   final String? text;
+  final Color? bgColor;
 
   const BantSecimi(
       {Key? key,
@@ -15,7 +16,8 @@ class BantSecimi extends StatelessWidget {
       required this.onPressed,
       required this.width,
       required this.height,
-      required this.text})
+      required this.text,
+      required this.bgColor})
       : super(key: key);
 
   @override
@@ -25,30 +27,35 @@ class BantSecimi extends StatelessWidget {
       height: height,
       child: DecoratedBox(
         decoration: BoxDecoration(
-            border: Border.all(width: 2, color: Colors.blue),
-            borderRadius: BorderRadius.circular(5)),
-        child: DropdownButton(
-          alignment: Alignment.center,
-          hint: Text(
-            text!,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+            color: bgColor,
+            border: Border.all(width: 2, color: Colors.grey),
+            borderRadius: BorderRadius.circular(20)),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15),
+          child: DropdownButton(
+            hint: Text(
+              text!,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+            items: gelenRenkler!
+                .map((oAnkiRenk, oAnkiDeger) {
+                  return MapEntry(
+                      oAnkiRenk,
+                      DropdownMenuItem(
+                        value: oAnkiDeger,
+                        child: Text(oAnkiRenk),
+                      ));
+                })
+                .values
+                .toList(),
+            onChanged: onPressed,
+            value: gelenRenkDegeri,
+            iconSize: 30,
+            isExpanded: true,
           ),
-          items: gelenRenkler!
-              .map((oAnkiRenk, oAnkiDeger) {
-                return MapEntry(
-                    oAnkiRenk,
-                    DropdownMenuItem(
-                      value: oAnkiDeger,
-                      child: Text(oAnkiRenk),
-                    ));
-              })
-              .values
-              .toList(),
-          onChanged: onPressed,
-          value: gelenRenkDegeri,
-          iconSize: 30,
-          iconEnabledColor: Colors.blue,
         ),
       ),
     );

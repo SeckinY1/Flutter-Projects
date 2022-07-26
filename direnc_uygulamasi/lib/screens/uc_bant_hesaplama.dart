@@ -57,6 +57,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BantSecimi(
+                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -71,6 +72,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 height: 20,
               ),
               BantSecimi(
+                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -85,6 +87,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 height: 20,
               ),
               BantSecimi(
+                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -98,7 +101,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
             ],
           ),
         ),
-        SizedBox(
+        Container(
+          color: Colors.yellow,
           height: 120,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -107,7 +111,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: 200,
+                width: 150,
                 childDegeri: "Hesapla",
                 onPressed: () {
                   setState(() {
@@ -128,7 +132,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                   });
                 },
               ),
+              const SizedBox(
+                width: 20,
+              ),
               BantSecimi(
+                  bgColor: Colors.blue.shade300,
                   gelenRenkler: bolumMap,
                   gelenRenkDegeri: bolum,
                   onPressed: (double? deger4) {
@@ -136,13 +144,15 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                       bolum = deger4;
                     });
                   },
-                  width: 125,
+                  width: 150,
                   height: 50,
                   text: "Birim Seçiniz")
             ],
           ),
         ),
         Container(
+          alignment: Alignment.center,
+          color: Colors.red,
           height: 120,
           child: Text(
             "Direnç Değeri: $deger",
