@@ -15,9 +15,9 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   double? renkDegeri1;
   double? renkDegeri2;
   double? renkDegeri3;
+  String? birim = "";
   String deger = "";
   double? sonuc;
-  double? bolum;
 
   Map<String, double> renklerIlkBasamak = {
     "Kahverengi": 1,
@@ -42,7 +42,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     "Gri": 8,
     "Beyaz": 9
   };
-  Map<String, double> bolumMap = {"Ω": 1, "kΩ": 1000, "MΩ": 1000000};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +50,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
         title: const Text(" Üç Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
-        Container(height: 120, color: Colors.red),
+        Container(height: 120),
         SizedBox(
           height: 240,
           child: Column(
@@ -102,7 +102,6 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
           ),
         ),
         Container(
-          color: Colors.yellow,
           height: 120,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -111,21 +110,20 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: 150,
-                childDegeri: "Hesapla",
+                width: 100,
+                childDegeri: "Ω",
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
-                        renkDegeri3 == null ||
-                        bolum == null) {
+                        renkDegeri3 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
+                      birim = "Ω";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
-                          pow(10, renkDegeri3!).toDouble() /
-                          bolum!.toDouble();
+                          pow(10, renkDegeri3!).toDouble();
                       print(sonuc);
                       deger = sonuc.toString();
                     }
@@ -135,31 +133,71 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               const SizedBox(
                 width: 20,
               ),
-              BantSecimi(
-                  bgColor: Colors.blue.shade300,
-                  gelenRenkler: bolumMap,
-                  gelenRenkDegeri: bolum,
-                  onPressed: (double? deger4) {
-                    setState(() {
-                      bolum = deger4;
-                    });
-                  },
-                  width: 150,
-                  height: 50,
-                  text: "Birim Seçiniz")
+              Buton(
+                renkDegeri1: renkDegeri1,
+                renkDegeri2: renkDegeri2,
+                renkDegeri3: renkDegeri3,
+                width: 100,
+                childDegeri: "kΩ",
+                onPressed: () {
+                  setState(() {
+                    if (renkDegeri1 == null ||
+                        renkDegeri2 == null ||
+                        renkDegeri3 == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content:
+                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                    } else {
+                      birim = "kΩ";
+                      sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
+                          pow(10, renkDegeri3!).toDouble() /
+                          pow(10, 3);
+                      print(sonuc);
+                      deger = sonuc.toString();
+                    }
+                  });
+                },
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              Buton(
+                renkDegeri1: renkDegeri1,
+                renkDegeri2: renkDegeri2,
+                renkDegeri3: renkDegeri3,
+                width: 100,
+                childDegeri: "MΩ",
+                onPressed: () {
+                  setState(() {
+                    if (renkDegeri1 == null ||
+                        renkDegeri2 == null ||
+                        renkDegeri3 == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content:
+                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                    } else {
+                      birim = "MΩ";
+                      sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
+                          pow(10, renkDegeri3!).toDouble() /
+                          pow(10, 6);
+                      print(sonuc);
+                      deger = sonuc.toString();
+                    }
+                  });
+                },
+              )
             ],
           ),
         ),
         Container(
           alignment: Alignment.center,
-          color: Colors.red,
           height: 120,
           child: Text(
-            "Direnç Değeri: $deger",
+            "Direnç Değeri: $deger $birim",
             style: const TextStyle(
                 color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
           ),
-        )
+        ),
       ]),
     );
   }
