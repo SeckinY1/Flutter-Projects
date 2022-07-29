@@ -16,7 +16,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   double? renkDegeri2;
   double? renkDegeri3;
   String? birim = "";
-  String deger = "";
+  String deger = "... Ω ± ... %";
   double? sonuc;
 
   Map<String, double> renklerIlkBasamak = {
@@ -52,12 +52,12 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
       body: Column(children: [
         Container(height: 120),
         SizedBox(
-          height: 240,
+          height: 300,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BantSecimi(
-                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
+                  bgColor: const Color.fromARGB(255, 236, 234, 234),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -72,7 +72,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 height: 20,
               ),
               BantSecimi(
-                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
+                  bgColor: const Color.fromARGB(255, 236, 234, 234),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -87,7 +87,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 height: 20,
               ),
               BantSecimi(
-                  bgColor: const Color.fromRGBO(213, 212, 212, 1),
+                  bgColor: const Color.fromARGB(255, 236, 234, 234),
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
@@ -101,7 +101,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: 120,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -112,6 +112,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 width: 100,
                 childDegeri: "Ω",
+                color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -139,6 +140,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 width: 100,
                 childDegeri: "kΩ",
+                color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -167,6 +169,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 width: 100,
                 childDegeri: "MΩ",
+                color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -191,11 +194,16 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
         ),
         Container(
           alignment: Alignment.center,
-          height: 120,
+          height: 60,
           child: Text(
-            "Direnç Değeri: $deger $birim",
+            "DİRENÇ DEĞERİ : \n $deger $birim",
             style: const TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
+                // color: Colors.grey[800],
+                fontWeight: FontWeight.w700,
+                // fontStyle: FontStyle.italic,
+                fontFamily: 'Open Sans',
+                fontSize: 25),
+            textAlign: TextAlign.center,
           ),
         ),
       ]),
