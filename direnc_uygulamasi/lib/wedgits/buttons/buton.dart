@@ -8,6 +8,7 @@ class Buton extends StatelessWidget {
   final VoidCallback? onPressed;
   final double? width;
   final double? height;
+  final Color? color;
   const Buton(
       {Key? key,
       required this.renkDegeri1,
@@ -15,6 +16,7 @@ class Buton extends StatelessWidget {
       required this.renkDegeri3,
       required this.onPressed,
       required this.childDegeri,
+      this.color,
       this.width,
       this.height})
       : super(key: key);
@@ -25,11 +27,17 @@ class Buton extends StatelessWidget {
       width: width,
       height: height,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(fixedSize: const Size(75, 50)),
+        style: ElevatedButton.styleFrom(
+            primary: color, fixedSize: const Size(75, 50)),
         onPressed: onPressed,
         child: Text(
           childDegeri!,
-          style: const TextStyle(fontSize: 20),
+          style: const TextStyle(
+              // color: Colors.grey[800],
+              // fontWeight: FontWeight.w500,
+              // fontStyle: FontStyle.italic,
+              fontFamily: 'Open Sans',
+              fontSize: 20),
         ),
       ),
     );
