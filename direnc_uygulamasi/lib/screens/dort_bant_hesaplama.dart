@@ -2,7 +2,10 @@ import 'dart:math';
 
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/direnc_renkleri.dart';
 import 'package:flutter/material.dart';
+
+import '../wedgits/buttons/tolerans_renkleri.dart';
 
 class DortBantHesaplama extends StatefulWidget {
   const DortBantHesaplama({Key? key}) : super(key: key);
@@ -17,7 +20,8 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
   double? renkDegeri3;
   double? renkDegeri4;
   String? birim = "";
-  String deger = "... Ω ± ... %";
+  String deger = "... Ω ± % ...";
+  String? toleransDegeri = "";
   double? sonuc;
 
   Map<String, double> renklerIlkBasamak = {
@@ -44,6 +48,30 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
     "Beyaz": 9
   };
 
+  Map<String, double> carpan = {
+    "Siyah": 0,
+    "Kahverengi": 1,
+    "Kırmızı": 2,
+    "Turuncu": 3,
+    "Sarı": 4,
+    "Yeşil": 5,
+    "Mavi": 6,
+    "Mor": 7,
+    "Altın": -1,
+    "Gümüş": -2
+  };
+
+  Map<String, double> tolerans = {
+    "Kahverengi": 1,
+    "Kırmızı": 2,
+    "Yeşil": 0.5,
+    "Mavi": 0.25,
+    "Mor": 0.10,
+    "Gri": 0.05,
+    "Altın": 5,
+    "Gümüş": 10
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +79,31 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
         title: const Text(" Dört Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
-        Container(height: 120),
+        Container(
+          height: 120,
+          width: 300,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/direnc.png"))),
+          child: Row(children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 115),
+              child: DirencRenkleri(height: 42, renkDegeri: renkDegeri1),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri2),
+            const SizedBox(
+              width: 10,
+            ),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri3),
+            const SizedBox(
+              width: 10,
+            ),
+            ToleransRenkleri(height: 42, renkDegeri: renkDegeri4)
+          ]),
+        ),
         SizedBox(
           height: 300,
           child: Column(
@@ -92,7 +144,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
-                  gelenRenkler: renkler,
+                  gelenRenkler: carpan,
                   gelenRenkDegeri: renkDegeri3,
                   onPressed: (double? deger3) {
                     setState(() {
@@ -107,7 +159,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
-                  gelenRenkler: renkler,
+                  gelenRenkler: tolerans,
                   gelenRenkDegeri: renkDegeri4,
                   onPressed: (double? deger4) {
                     setState(() {
@@ -133,11 +185,13 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
-                        renkDegeri3 == null) {
+                        renkDegeri3 == null ||
+                        renkDegeri4 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
+                      toleransDegeri = renkDegeri4.toString();
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble();
@@ -154,6 +208,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
+                renkDegeri4: renkDegeri4,
                 width: 100,
                 childDegeri: "kΩ",
                 color: const Color.fromRGBO(255, 87, 87, 1),
@@ -161,11 +216,13 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
-                        renkDegeri3 == null) {
+                        renkDegeri3 == null ||
+                        renkDegeri4 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
+                      toleransDegeri = renkDegeri4.toString();
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble() /
@@ -196,6 +253,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
+                      toleransDegeri = renkDegeri4.toString();
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble() /
@@ -213,7 +271,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
           alignment: Alignment.center,
           height: 60,
           child: Text(
-            "DİRENÇ DEĞERİ : \n $deger $birim",
+            "DİRENÇ DEĞERİ : \n $deger $birim $toleransDegeri",
             style: const TextStyle(
                 // color: Colors.grey[800],
                 fontWeight: FontWeight.w700,

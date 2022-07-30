@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/direnc_renkleri.dart';
 import 'package:flutter/material.dart';
 
 class UcBantHesaplama extends StatefulWidget {
@@ -16,7 +17,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   double? renkDegeri2;
   double? renkDegeri3;
   String? birim = "";
-  String deger = "... Ω ± ... %";
+  String deger = "... Ω ± % 20";
   double? sonuc;
 
   Map<String, double> renklerIlkBasamak = {
@@ -43,6 +44,19 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
     "Beyaz": 9
   };
 
+  Map<String, double> carpan = {
+    "Siyah": 0,
+    "Kahverengi": 1,
+    "Kırmızı": 2,
+    "Turuncu": 3,
+    "Sarı": 4,
+    "Yeşil": 5,
+    "Mavi": 6,
+    "Mor": 7,
+    "Altın": -1,
+    "Gümüş": -2
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +64,27 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
         title: const Text(" Üç Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
-        Container(height: 120),
+        Container(
+          height: 120,
+          width: 300,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/direnc.png"))),
+          child: Row(children: [
+            Padding(
+                padding: const EdgeInsets.only(left: 120),
+                child: DirencRenkleri(
+                  height: 42,
+                  renkDegeri: renkDegeri1,
+                )),
+            const SizedBox(
+              width: 10,
+            ),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri2),
+            const SizedBox(width: 10),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri3)
+          ]),
+        ),
         SizedBox(
           height: 300,
           child: Column(
@@ -91,7 +125,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                   width: 300,
                   height: 50,
                   text: "Değer Seçiniz",
-                  gelenRenkler: renkler,
+                  gelenRenkler: carpan,
                   gelenRenkDegeri: renkDegeri3,
                   onPressed: (double? deger3) {
                     setState(() {

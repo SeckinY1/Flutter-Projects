@@ -2,28 +2,30 @@ import 'dart:math';
 
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/direnc_renkleri.dart';
+import 'package:direnc_uygulamasi/wedgits/buttons/sicaklik_renkleri.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/tolerans_renkleri.dart';
 import 'package:flutter/material.dart';
 
-import '../wedgits/buttons/direnc_renkleri.dart';
-
-class BesBantHesaplama extends StatefulWidget {
-  const BesBantHesaplama({Key? key}) : super(key: key);
+class AltiBantHesaplama extends StatefulWidget {
+  const AltiBantHesaplama({Key? key}) : super(key: key);
 
   @override
-  State<BesBantHesaplama> createState() => _BesBantHesaplamaState();
+  State<AltiBantHesaplama> createState() => _AltiBantHesaplamaState();
 }
 
-class _BesBantHesaplamaState extends State<BesBantHesaplama> {
+class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
   double? renkDegeri1;
   double? renkDegeri2;
   double? renkDegeri3;
   double? renkDegeri4;
   double? renkDegeri5; // TO DO
+  double? renkDegeri6; // TO DO
 
   String? birim = "";
-  String deger = "... Ω ± % ...";
+  String deger = "... Ω ± % ..., ... PPM";
   String? toleransDegeri = "";
+  String? sicaklikDegeri = "";
   double? sonuc;
 
   Map<String, double> renklerIlkBasamak = {
@@ -37,6 +39,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
     "Gri": 8,
     "Beyaz": 9
   };
+
   Map<String, double> renkler = {
     "Siyah": 0,
     "Kahverengi": 1,
@@ -59,6 +62,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
     "Yeşil": 5,
     "Mavi": 6,
     "Mor": 7,
+    "Gri": 8,
+    "Beyaz": 9,
     "Altın": -1,
     "Gümüş": -2
   };
@@ -66,6 +71,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
   Map<String, double> tolerans = {
     "Kahverengi": 1,
     "Kırmızı": 2,
+    "Turuncu": 3,
+    "Sarı": 4,
     "Yeşil": 0.5,
     "Mavi": 0.25,
     "Mor": 0.10,
@@ -74,11 +81,20 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
     "Gümüş": 10
   };
 
+  Map<String, double> sicaklikKatsayisi = {
+    "Kahverengi": 100,
+    "Kırmızı": 50,
+    "Turuncu": 15,
+    "Sarı": 25,
+    "Mavi": 10,
+    "Mor": 5,
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(" Beş Bantlı Direnç Hesaplama"),
+        title: const Text(" Altı Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
         Container(
@@ -89,11 +105,11 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                   image: AssetImage("assets/images/direnc.png"))),
           child: Row(children: [
             Padding(
-              padding: const EdgeInsets.only(left: 105),
-              child: DirencRenkleri(height: 42, renkDegeri: renkDegeri1),
+              padding: const EdgeInsets.only(left: 80),
+              child: DirencRenkleri(height: 50, renkDegeri: renkDegeri1),
             ),
             const SizedBox(
-              width: 10,
+              width: 25,
             ),
             DirencRenkleri(height: 42, renkDegeri: renkDegeri2),
             const SizedBox(
@@ -107,7 +123,11 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
             const SizedBox(
               width: 10,
             ),
-            ToleransRenkleri(height: 42, renkDegeri: renkDegeri5)
+            ToleransRenkleri(height: 42, renkDegeri: renkDegeri5),
+            const SizedBox(
+              width: 20,
+            ),
+            SicaklikRenkleri(height: 50, renkDegeri: renkDegeri6)
           ]),
         ),
         SizedBox(
@@ -175,18 +195,35 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               const SizedBox(
                 height: 10,
               ),
-              BantSecimi(
-                  bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: 300,
-                  height: 50,
-                  text: "Değer Seçiniz",
-                  gelenRenkler: tolerans,
-                  gelenRenkDegeri: renkDegeri5,
-                  onPressed: (double? deger5) {
-                    setState(() {
-                      renkDegeri5 = deger5;
-                    });
-                  })
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                BantSecimi(
+                    bgColor: const Color.fromARGB(255, 236, 234, 234),
+                    width: 145,
+                    height: 50,
+                    text: "Değer Seçiniz",
+                    gelenRenkler: tolerans,
+                    gelenRenkDegeri: renkDegeri5,
+                    onPressed: (double? deger5) {
+                      setState(() {
+                        renkDegeri5 = deger5;
+                      });
+                    }),
+                const SizedBox(
+                  width: 10,
+                ),
+                BantSecimi(
+                    bgColor: const Color.fromARGB(255, 236, 234, 234),
+                    width: 145,
+                    height: 50,
+                    text: "Değer Seçiniz",
+                    gelenRenkler: sicaklikKatsayisi,
+                    gelenRenkDegeri: renkDegeri6,
+                    onPressed: (double? deger6) {
+                      setState(() {
+                        renkDegeri6 = deger6;
+                      });
+                    }),
+              ]),
             ],
           ),
         ),
@@ -201,21 +238,24 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
+                renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "Ω",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromARGB(218, 180, 75, 14),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
                         renkDegeri3 == null ||
                         renkDegeri4 == null ||
-                        renkDegeri5 == null) {
+                        renkDegeri5 == null ||
+                        renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
+                      sicaklikDegeri = renkDegeri6.toString();
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -236,21 +276,24 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
+                renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "kΩ",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromARGB(218, 180, 75, 14),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
                         renkDegeri3 == null ||
                         renkDegeri4 == null ||
-                        renkDegeri5 == null) {
+                        renkDegeri5 == null ||
+                        renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
+                      sicaklikDegeri = renkDegeri6.toString();
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -272,21 +315,24 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
+                renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "MΩ",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromARGB(218, 180, 75, 14),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
                         renkDegeri2 == null ||
                         renkDegeri3 == null ||
                         renkDegeri4 == null ||
-                        renkDegeri5 == null) {
+                        renkDegeri5 == null ||
+                        renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content:
                               Text("Eksik veya hatalı ifade girişi yaptınız")));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
+                      sicaklikDegeri = renkDegeri6.toString();
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -306,7 +352,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
           alignment: Alignment.center,
           height: 60,
           child: Text(
-            "DİRENÇ DEĞERİ : \n $deger $birim $toleransDegeri",
+            "DİRENÇ DEĞERİ : \n $deger $birim $toleransDegeri $sicaklikDegeri",
             style: const TextStyle(
                 // color: Colors.grey[800],
                 fontWeight: FontWeight.w700,

@@ -4,6 +4,9 @@ class Buton extends StatelessWidget {
   final double? renkDegeri1;
   final double? renkDegeri2;
   final double? renkDegeri3;
+  final double? renkDegeri4;
+  final double? renkDegeri5;
+  final double? renkDegeri6;
   final String? childDegeri;
   final VoidCallback? onPressed;
   final double? width;
@@ -14,6 +17,9 @@ class Buton extends StatelessWidget {
       required this.renkDegeri1,
       required this.renkDegeri2,
       required this.renkDegeri3,
+      this.renkDegeri4,
+      this.renkDegeri5,
+      this.renkDegeri6,
       required this.onPressed,
       required this.childDegeri,
       this.color,
