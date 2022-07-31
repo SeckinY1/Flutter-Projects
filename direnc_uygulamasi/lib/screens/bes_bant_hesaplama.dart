@@ -78,6 +78,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(241, 143, 57, 1),
         title: const Text(" Beş Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
@@ -203,7 +204,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri5: renkDegeri5,
                 width: 100,
                 childDegeri: "Ω",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -212,8 +213,11 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                         renkDegeri4 == null ||
                         renkDegeri5 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(241, 143, 57, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       birim = "Ω";
@@ -238,7 +242,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri5: renkDegeri5,
                 width: 100,
                 childDegeri: "kΩ",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -247,8 +251,11 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                         renkDegeri4 == null ||
                         renkDegeri5 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(241, 143, 57, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       birim = "kΩ";
@@ -274,7 +281,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri5: renkDegeri5,
                 width: 100,
                 childDegeri: "MΩ",
-                color: const Color.fromARGB(255, 240, 155, 81),
+                color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -283,8 +290,11 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                         renkDegeri4 == null ||
                         renkDegeri5 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(241, 143, 57, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       birim = "MΩ";

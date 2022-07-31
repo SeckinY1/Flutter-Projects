@@ -33,10 +33,10 @@ class DirencRenkleri extends StatelessWidget {
                                               ? Colors.white
                                               : renkDegeri == -1
                                                   ? const Color.fromRGBO(
-                                                      255, 215, 0, 1)
+                                                      243, 202, 32, 1)
                                                   : renkDegeri == -2
-                                                      ? const Color.fromRGBO(
-                                                          192, 192, 192, 1)
+                                                      ? const Color.fromARGB(
+                                                          239, 213, 218, 224)
                                                       : Colors.transparent,
     );
   }

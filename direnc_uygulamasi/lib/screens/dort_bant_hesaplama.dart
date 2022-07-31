@@ -76,6 +76,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 252, 83, 83),
         title: const Text(" Dört Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
@@ -188,8 +189,11 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                         renkDegeri3 == null ||
                         renkDegeri4 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(255, 87, 87, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri4.toString();
                       birim = "Ω";
@@ -219,8 +223,11 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                         renkDegeri3 == null ||
                         renkDegeri4 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(255, 87, 87, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri4.toString();
                       birim = "kΩ";
@@ -250,8 +257,11 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                         renkDegeri3 == null ||
                         renkDegeri4 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(255, 87, 87, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri4.toString();
                       birim = "MΩ";

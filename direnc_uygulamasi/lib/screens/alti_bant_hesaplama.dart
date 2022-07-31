@@ -94,6 +94,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 18, 184, 10),
         title: const Text(" Altı Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
@@ -241,7 +242,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                 renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "Ω",
-                color: const Color.fromARGB(218, 180, 75, 14),
+                color: const Color.fromRGBO(22, 198, 12, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -251,8 +252,11 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                         renkDegeri5 == null ||
                         renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(22, 198, 12, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       sicaklikDegeri = renkDegeri6.toString();
@@ -279,7 +283,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                 renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "kΩ",
-                color: const Color.fromARGB(218, 180, 75, 14),
+                color: const Color.fromRGBO(22, 198, 12, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -289,8 +293,11 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                         renkDegeri5 == null ||
                         renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(22, 198, 12, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       sicaklikDegeri = renkDegeri6.toString();
@@ -318,7 +325,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                 renkDegeri6: renkDegeri6,
                 width: 100,
                 childDegeri: "MΩ",
-                color: const Color.fromARGB(218, 180, 75, 14),
+                color: const Color.fromRGBO(22, 198, 12, 1),
                 onPressed: () {
                   setState(() {
                     if (renkDegeri1 == null ||
@@ -328,8 +335,11 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                         renkDegeri5 == null ||
                         renkDegeri6 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(22, 198, 12, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       toleransDegeri = renkDegeri5.toString();
                       sicaklikDegeri = renkDegeri6.toString();

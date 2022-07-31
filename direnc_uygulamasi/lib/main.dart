@@ -14,6 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        title: "Resistor Calculate", home: AltiBantHesaplama());
+        title: "Resistor Calculate", home: UcBantHesaplama());
   }
 }

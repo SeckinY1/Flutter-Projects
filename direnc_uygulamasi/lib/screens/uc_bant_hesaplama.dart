@@ -61,6 +61,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 135, 76, 253),
         title: const Text(" Üç Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
@@ -153,8 +154,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         renkDegeri2 == null ||
                         renkDegeri3 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(140, 82, 255, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
@@ -181,8 +185,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         renkDegeri2 == null ||
                         renkDegeri3 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(140, 82, 255, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
@@ -210,8 +217,11 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                         renkDegeri2 == null ||
                         renkDegeri3 == null) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content:
-                              Text("Eksik veya hatalı ifade girişi yaptınız")));
+                          backgroundColor: Color.fromRGBO(140, 82, 255, 1),
+                          content: Text(
+                            "Eksik veya hatalı ifade girişi yaptınız !",
+                            textAlign: TextAlign.center,
+                          )));
                     } else {
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *

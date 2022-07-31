@@ -28,10 +28,11 @@ class ToleransRenkleri extends StatelessWidget {
                                   : renkDegeri == 0.05
                                       ? Colors.grey
                                       : renkDegeri == 5
-                                          ? const Color.fromRGBO(255, 215, 0, 1)
+                                          ? const Color.fromRGBO(
+                                              243, 202, 32, 1)
                                           : renkDegeri == 10
-                                              ? const Color.fromRGBO(
-                                                  192, 192, 192, 1)
+                                              ? const Color.fromARGB(
+                                                  239, 213, 218, 224)
                                               : Colors.transparent,
     );
   }
