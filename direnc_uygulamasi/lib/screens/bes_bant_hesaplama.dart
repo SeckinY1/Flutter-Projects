@@ -22,6 +22,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
   double? renkDegeri5; // TO DO
 
   String? birim = "";
+  String ifadeler = "± %";
   String deger = "... Ω ± % ...";
   String? toleransDegeri = "";
   double? sonuc;
@@ -219,7 +220,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
+                      toleransDegeri = ifadeler + renkDegeri5.toString();
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -257,7 +258,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
+                      toleransDegeri = ifadeler + renkDegeri5.toString();
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -296,7 +297,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
+                      toleransDegeri = ifadeler + renkDegeri5.toString();
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +

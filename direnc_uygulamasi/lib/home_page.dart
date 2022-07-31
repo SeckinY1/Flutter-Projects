@@ -1,3 +1,7 @@
+import 'package:direnc_uygulamasi/screens/alti_bant_hesaplama.dart';
+import 'package:direnc_uygulamasi/screens/bes_bant_hesaplama.dart';
+import 'package:direnc_uygulamasi/screens/dort_bant_hesaplama.dart';
+import 'package:direnc_uygulamasi/screens/uc_bant_hesaplama.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,10 +15,38 @@ class HomePage extends StatelessWidget {
         child: IntrinsicHeight(
           child: Column(
             children: [
-              elevatedButton(() {}, "Üç Bant Direnç Hesaplama"),
-              elevatedButton(() {}, "Dört Bant Direnç Hesaplama"),
-              elevatedButton(() {}, "Beş Bant Direnç Hesaplama"),
-              elevatedButton(() {}, "Altı Bant Direnç Hesaplama"),
+              ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const UcBantHesaplama()));
+                  },
+                  text: "Üç Bant Direnç Hesaplama"),
+              ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DortBantHesaplama()));
+                  },
+                  text: "Dört Bant Direnç Hesaplama"),
+              ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BesBantHesaplama()));
+                  },
+                  text: "Beş Bant Direnç Hesaplama"),
+              ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AltiBantHesaplama()));
+                  },
+                  text: "Altı Bant Direnç Hesaplama"),
             ],
           ),
         ),
@@ -23,9 +55,18 @@ class HomePage extends StatelessWidget {
   }
 }
 
-Widget elevatedButton(Function fonksiyon, String text) {
-  return ElevatedButton(
-      onPressed: () => fonksiyon,
+class ElevatedButon extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String text;
+  ElevatedButon({Key? key, required this.onPressed, required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
       child: Text(text),
-      style: ElevatedButton.styleFrom(fixedSize: const Size(210, 20)));
+      style: ElevatedButton.styleFrom(fixedSize: const Size(210, 20)),
+    );
+  }
 }

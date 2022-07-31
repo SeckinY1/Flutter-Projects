@@ -23,6 +23,9 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
   double? renkDegeri6; // TO DO
 
   String? birim = "";
+  String ifadeler = "± %";
+  String virgul = ",";
+  String ppm = "PPM";
   String deger = "... Ω ± % ..., ... PPM";
   String? toleransDegeri = "";
   String? sicaklikDegeri = "";
@@ -258,8 +261,9 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
-                      sicaklikDegeri = renkDegeri6.toString();
+                      toleransDegeri =
+                          ifadeler + renkDegeri5.toString() + virgul;
+                      sicaklikDegeri = renkDegeri6.toString() + ppm;
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -299,8 +303,9 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
-                      sicaklikDegeri = renkDegeri6.toString();
+                      toleransDegeri =
+                          ifadeler + renkDegeri5.toString() + virgul;
+                      sicaklikDegeri = renkDegeri6.toString() + ppm;
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +
@@ -341,8 +346,9 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri5.toString();
-                      sicaklikDegeri = renkDegeri6.toString();
+                      toleransDegeri =
+                          ifadeler + renkDegeri5.toString() + virgul;
+                      sicaklikDegeri = renkDegeri6.toString() + ppm;
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 100) +
                               (renkDegeri2! * 10) +

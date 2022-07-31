@@ -20,6 +20,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
   double? renkDegeri3;
   double? renkDegeri4;
   String? birim = "";
+  String ifadeler = "± %";
   String deger = "... Ω ± % ...";
   String? toleransDegeri = "";
   double? sonuc;
@@ -195,7 +196,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri4.toString();
+                      toleransDegeri = ifadeler + renkDegeri4.toString();
                       birim = "Ω";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble();
@@ -229,7 +230,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri4.toString();
+                      toleransDegeri = ifadeler + renkDegeri4.toString();
                       birim = "kΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble() /
@@ -263,7 +264,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                             textAlign: TextAlign.center,
                           )));
                     } else {
-                      toleransDegeri = renkDegeri4.toString();
+                      toleransDegeri = ifadeler + renkDegeri4.toString();
                       birim = "MΩ";
                       sonuc = ((renkDegeri1! * 10) + renkDegeri2!) *
                           pow(10, renkDegeri3!).toDouble() /
