@@ -69,8 +69,18 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
           height: 120,
           width: 300,
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/direnc.png"))),
+            image:
+                DecorationImage(image: AssetImage("assets/images/direnc.png")),
+            //TO DO
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.white.withOpacity(0.5),
+            //     spreadRadius: 5,
+            //     blurRadius: 7,
+            //     offset: const Offset(0, 3),
+            //   ),
+            // ],
+          ),
           child: Row(children: [
             Padding(
                 padding: const EdgeInsets.only(left: 120),

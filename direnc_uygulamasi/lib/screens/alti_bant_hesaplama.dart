@@ -110,7 +110,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.only(left: 80),
-              child: DirencRenkleri(height: 50, renkDegeri: renkDegeri1),
+              child: DirencRenkleri(height: 52, renkDegeri: renkDegeri1),
             ),
             const SizedBox(
               width: 25,
@@ -131,7 +131,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
             const SizedBox(
               width: 20,
             ),
-            SicaklikRenkleri(height: 50, renkDegeri: renkDegeri6)
+            SicaklikRenkleri(height: 52, renkDegeri: renkDegeri6)
           ]),
         ),
         SizedBox(

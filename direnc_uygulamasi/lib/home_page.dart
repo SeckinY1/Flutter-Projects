@@ -15,38 +15,72 @@ class HomePage extends StatelessWidget {
         child: IntrinsicHeight(
           child: Column(
             children: [
-              ElevatedButon(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const UcBantHesaplama()));
-                  },
-                  text: "Üç Bant Direnç Hesaplama"),
-              ElevatedButon(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DortBantHesaplama()));
-                  },
-                  text: "Dört Bant Direnç Hesaplama"),
-              ElevatedButon(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BesBantHesaplama()));
-                  },
-                  text: "Beş Bant Direnç Hesaplama"),
-              ElevatedButon(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AltiBantHesaplama()));
-                  },
-                  text: "Altı Bant Direnç Hesaplama"),
+              const Text(
+                  "DİRENÇ HESAPLAMA UYGULAMASINA \n HOŞ GELDİNİZ \n\n  HESAPLAMAK İSTEDİĞİNİZ BANDI SEÇİNİZ",
+                  style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center),
+              const SizedBox(height: 30),
+              Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                width: 250,
+                height: 60,
+                child: ElevatedButon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const UcBantHesaplama()));
+                    },
+                    text: "Üç Bant Direnç Hesaplama"),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 250,
+                height: 60,
+                child: ElevatedButon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DortBantHesaplama()));
+                    },
+                    text: "Dört Bant Direnç Hesaplama"),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 250,
+                height: 60,
+                child: ElevatedButon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BesBantHesaplama()));
+                    },
+                    text: "Beş Bant Direnç Hesaplama"),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 250,
+                height: 60,
+                child: ElevatedButon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AltiBantHesaplama()));
+                    },
+                    text: "Altı Bant Direnç Hesaplama"),
+              ),
             ],
           ),
         ),

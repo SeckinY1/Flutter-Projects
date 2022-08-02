@@ -1,8 +1,4 @@
 import 'package:direnc_uygulamasi/home_page.dart';
-import 'package:direnc_uygulamasi/screens/alti_bant_hesaplama.dart';
-import 'package:direnc_uygulamasi/screens/bes_bant_hesaplama.dart';
-import 'package:direnc_uygulamasi/screens/dort_bant_hesaplama.dart';
-import 'package:direnc_uygulamasi/screens/uc_bant_hesaplama.dart';
 import 'package:flutter/material.dart';
 
 void main() {
