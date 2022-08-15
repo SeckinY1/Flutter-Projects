@@ -9,80 +9,121 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: const Text("Resistor Calculate")),
-      body: Center(
-        child: IntrinsicHeight(
-          child: Column(
-            children: [
-              const Text(
-                  "DİRENÇ HESAPLAMA UYGULAMASINA \n HOŞ GELDİNİZ \n\n  HESAPLAMAK İSTEDİĞİNİZ BANDI SEÇİNİZ",
-                  style: TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center),
-              const SizedBox(height: 30),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
+      body: IntrinsicHeight(
+        child: Column(
+          children: [
+            Stack(
+              children: <Widget>[
+                Container(
+                  height: size.height * 0.35,
+                  decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50),
+                      )),
                 ),
-                width: 250,
-                height: 60,
-                child: ElevatedButon(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const UcBantHesaplama()));
-                    },
-                    text: "Üç Bant Direnç Hesaplama"),
+                const Text(
+                    "DİRENÇ HESAPLAMA UYGULAMASINA \n HOŞ GELDİNİZ \n\n  HESAPLAMAK İSTEDİĞİNİZ BANDI SEÇİNİZ",
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center),
+              ],
+            ),
+            const SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: 250,
-                height: 60,
-                child: ElevatedButon(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DortBantHesaplama()));
-                    },
-                    text: "Dört Bant Direnç Hesaplama"),
+              width: 250,
+              height: 60,
+              child: ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const UcBantHesaplama()));
+                  },
+                  text: "Üç Bant Direnç Hesaplama"),
+            ),
+            const SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: 250,
-                height: 60,
-                child: ElevatedButon(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BesBantHesaplama()));
-                    },
-                    text: "Beş Bant Direnç Hesaplama"),
+              width: 250,
+              height: 60,
+              child: ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DortBantHesaplama()));
+                  },
+                  text: "Dört Bant Direnç Hesaplama"),
+            ),
+            const SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: 250,
-                height: 60,
-                child: ElevatedButon(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AltiBantHesaplama()));
-                    },
-                    text: "Altı Bant Direnç Hesaplama"),
+              width: 250,
+              height: 60,
+              child: ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BesBantHesaplama()));
+                  },
+                  text: "Beş Bant Direnç Hesaplama"),
+            ),
+            const SizedBox(height: 30),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
-            ],
-          ),
+              width: 250,
+              height: 60,
+              child: ElevatedButon(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AltiBantHesaplama()));
+                  },
+                  text: "Altı Bant Direnç Hesaplama"),
+            ),
+          ],
         ),
       ),
     );
@@ -100,7 +141,7 @@ class ElevatedButon extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(text),
-      style: ElevatedButton.styleFrom(fixedSize: const Size(210, 20)),
+      style: ElevatedButton.styleFrom(fixedSize: const Size(210, 30)),
     );
   }
 }
