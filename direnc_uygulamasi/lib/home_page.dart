@@ -14,24 +14,27 @@ class HomePage extends StatelessWidget {
       body: IntrinsicHeight(
         child: Column(
           children: [
-            Stack(
-              children: <Widget>[
-                Container(
-                  height: size.height * 0.35,
-                  decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50),
-                      )),
-                ),
-                const Text(
-                    "DİRENÇ HESAPLAMA UYGULAMASINA \n HOŞ GELDİNİZ \n\n  HESAPLAMAK İSTEDİĞİNİZ BANDI SEÇİNİZ",
-                    style: TextStyle(fontSize: 16),
-                    textAlign: TextAlign.center),
-              ],
+            Container(
+              alignment: Alignment.center,
+              height: size.height * 0.35,
+              width: size.width,
+              decoration: const BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  )),
+              child: const Text(
+                  "DİRENÇ HESAPLAMA UYGULAMASINA \n HOŞ GELDİNİZ \n\n  HESAPLAMAK İSTEDİĞİNİZ BANDI \n SEÇİNİZ",
+                  style: TextStyle(
+                    fontSize: 16,
+                    letterSpacing: 1.5,
+                    color: Colors.white,
+                    fontFamily: "Roboto",
+                  ),
+                  textAlign: TextAlign.center),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
             Container(
               decoration: BoxDecoration(
                 boxShadow: [
