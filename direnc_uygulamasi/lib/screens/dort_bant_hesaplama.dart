@@ -75,46 +75,54 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 252, 83, 83),
-        title: const Text(" Dört Bantlı Direnç Hesaplama"),
+        title: const Text(
+          " Dört Bantlı Direnç Hesaplama",
+          style: TextStyle(fontFamily: "Poppins"),
+        ),
       ),
       body: Column(children: [
         Container(
-          height: 120,
-          width: 300,
+          height: size.height * 0.16,
+          width: size.width * 0.76,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/direnc.png"))),
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.only(left: 115),
-              child: DirencRenkleri(height: 42, renkDegeri: renkDegeri1),
+              child: DirencRenkleri(
+                  height: size.height * 0.060, renkDegeri: renkDegeri1),
             ),
             const SizedBox(
               width: 10,
             ),
-            DirencRenkleri(height: 42, renkDegeri: renkDegeri2),
+            DirencRenkleri(
+                height: size.height * 0.060, renkDegeri: renkDegeri2),
             const SizedBox(
               width: 10,
             ),
-            DirencRenkleri(height: 42, renkDegeri: renkDegeri3),
+            DirencRenkleri(
+                height: size.height * 0.060, renkDegeri: renkDegeri3),
             const SizedBox(
               width: 10,
             ),
-            ToleransRenkleri(height: 42, renkDegeri: renkDegeri4)
+            ToleransRenkleri(
+                height: size.height * 0.060, renkDegeri: renkDegeri4)
           ]),
         ),
         SizedBox(
-          height: 300,
+          height: size.height * 0.41,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: 300,
-                  height: 50,
+                  width: size.width * 0.76,
+                  height: size.height * 0.07,
                   text: "Değer Seçiniz",
                   gelenRenkler: renklerIlkBasamak,
                   gelenRenkDegeri: renkDegeri1,
@@ -128,8 +136,8 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: 300,
-                  height: 50,
+                  width: size.width * 0.76,
+                  height: size.height * 0.07,
                   text: "Değer Seçiniz",
                   gelenRenkler: renkler,
                   gelenRenkDegeri: renkDegeri2,
@@ -143,8 +151,8 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: 300,
-                  height: 50,
+                  width: size.width * 0.76,
+                  height: size.height * 0.07,
                   text: "Değer Seçiniz",
                   gelenRenkler: carpan,
                   gelenRenkDegeri: renkDegeri3,
@@ -158,8 +166,8 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: 300,
-                  height: 50,
+                  width: size.width * 0.76,
+                  height: size.height * 0.07,
                   text: "Değer Seçiniz",
                   gelenRenkler: tolerans,
                   gelenRenkDegeri: renkDegeri4,
@@ -172,7 +180,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
           ),
         ),
         SizedBox(
-          height: 120,
+          height: size.height * 0.13,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -180,7 +188,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: 100,
+                width: size.width * 0.25,
                 childDegeri: "Ω",
                 color: const Color.fromRGBO(255, 87, 87, 1),
                 onPressed: () {
@@ -214,7 +222,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
-                width: 100,
+                width: size.width * 0.25,
                 childDegeri: "kΩ",
                 color: const Color.fromRGBO(255, 87, 87, 1),
                 onPressed: () {
@@ -248,7 +256,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: 100,
+                width: size.width * 0.25,
                 childDegeri: "MΩ",
                 color: const Color.fromRGBO(255, 87, 87, 1),
                 onPressed: () {
@@ -280,15 +288,15 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
         ),
         Container(
           alignment: Alignment.center,
-          height: 60,
+          height: size.height * 0.09,
           child: Text(
             "DİRENÇ DEĞERİ : \n $deger $birim $toleransDegeri",
             style: const TextStyle(
                 // color: Colors.grey[800],
                 fontWeight: FontWeight.w700,
                 // fontStyle: FontStyle.italic,
-                fontFamily: 'Open Sans',
-                fontSize: 25),
+                fontFamily: "Poppins",
+                fontSize: 20),
             textAlign: TextAlign.center,
           ),
         ),

@@ -52,7 +52,7 @@ class Buton extends StatelessWidget {
               // color: Colors.grey[800],
               // fontWeight: FontWeight.w500,
               // fontStyle: FontStyle.italic,
-              fontFamily: 'Open Sans',
+              fontFamily: "Poppins",
               fontSize: 20),
         ),
       ),
