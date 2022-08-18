@@ -42,6 +42,6 @@ class _HesaplaButonuState extends State<HesaplaButonu> {
             }
           });
         },
-        child: Text("Olmadı gardaş"));
+        child: Text("Olmadı gardaş")); // TO DO
   }
 }

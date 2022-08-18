@@ -3,7 +3,6 @@ import 'package:direnc_uygulamasi/screens/bes_bant_hesaplama.dart';
 import 'package:direnc_uygulamasi/screens/dort_bant_hesaplama.dart';
 import 'package:direnc_uygulamasi/screens/uc_bant_hesaplama.dart';
 import 'package:flutter/material.dart';
-import 'package:widget_utils/widget_utils.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +30,7 @@ class HomePage extends StatelessWidget {
                     fontSize: 16,
                     letterSpacing: 1.5,
                     color: Colors.white,
-                    //fontFamily: "Roboto",
+                    fontFamily: "Poppins",
                   ),
                   textAlign: TextAlign.center),
             ),
@@ -47,8 +46,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              width: convertSize(250),
-              height: convertSize(60),
+              height: size.height * 0.075,
+              width: size.width * 0.65,
               child: ElevatedButon(
                   onPressed: () {
                     Navigator.push(
@@ -58,7 +57,7 @@ class HomePage extends StatelessWidget {
                   },
                   text: "Üç Bant Direnç Hesaplama"),
             ),
-            SizedBox(height: convertSize(30)),
+            const SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
                 boxShadow: [
@@ -70,8 +69,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              width: convertSize(250),
-              height: convertSize(60),
+              height: size.height * 0.075,
+              width: size.width * 0.65,
               child: ElevatedButon(
                   onPressed: () {
                     Navigator.push(
@@ -81,7 +80,7 @@ class HomePage extends StatelessWidget {
                   },
                   text: "Dört Bant Direnç Hesaplama"),
             ),
-            SizedBox(height: convertSize(30)),
+            const SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
                 boxShadow: [
@@ -93,8 +92,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              width: convertSize(250),
-              height: convertSize(60),
+              height: size.height * 0.075,
+              width: size.width * 0.65,
               child: ElevatedButon(
                   onPressed: () {
                     Navigator.push(
@@ -104,7 +103,7 @@ class HomePage extends StatelessWidget {
                   },
                   text: "Beş Bant Direnç Hesaplama"),
             ),
-            SizedBox(height: convertSize(30)),
+            const SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
                 boxShadow: [
@@ -116,8 +115,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              width: convertSize(250),
-              height: convertSize(60),
+              height: size.height * 0.075,
+              width: size.width * 0.65,
               child: ElevatedButon(
                   onPressed: () {
                     Navigator.push(
@@ -144,9 +143,13 @@ class ElevatedButon extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(text),
-      style: ElevatedButton.styleFrom(
-          fixedSize: Size(convertSize(210), convertSize(30))),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontFamily: "Poppins",
+        ),
+      ),
+      style: ElevatedButton.styleFrom(fixedSize: const Size(210, 30)),
     );
   }
 }
