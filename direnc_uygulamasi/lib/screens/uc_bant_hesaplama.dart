@@ -1,9 +1,9 @@
 import 'dart:math';
-
 import 'package:direnc_uygulamasi/wedgits/buttons/bant_secimi.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/buton.dart';
 import 'package:direnc_uygulamasi/wedgits/buttons/direnc_renkleri.dart';
 import 'package:flutter/material.dart';
+import 'package:widget_utils/widget_utils.dart';
 
 class UcBantHesaplama extends StatefulWidget {
   const UcBantHesaplama({Key? key}) : super(key: key);
@@ -59,48 +59,52 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 135, 76, 253),
-        title: const Text(
-          " Üç Bantlı Direnç Hesaplama",
-          style: TextStyle(fontFamily: "Poppins"),
-        ),
+        title: const Text(" Üç Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
         Container(
-          height: size.height * 0.16,
-          width: size.width * 0.76,
+          height: convertSize(120),
+          width: convertSize(300),
           decoration: const BoxDecoration(
             image:
                 DecorationImage(image: AssetImage("assets/images/direnc.png")),
+            //TO DO
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.white.withOpacity(0.5),
+            //     spreadRadius: 5,
+            //     blurRadius: 7,
+            //     offset: const Offset(0, 3),
+            //   ),
+            // ],
           ),
           child: Row(children: [
             Padding(
-                padding: const EdgeInsets.only(left: 120),
+                padding: EdgeInsets.only(left: convertSize(120)),
                 child: DirencRenkleri(
-                  height: size.height * 0.060,
+                  height: convertSize(42),
                   renkDegeri: renkDegeri1,
                 )),
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              width: convertSize(10),
             ),
-            DirencRenkleri(
-                height: size.height * 0.060, renkDegeri: renkDegeri2),
-            const SizedBox(width: 10),
-            DirencRenkleri(height: size.height * 0.060, renkDegeri: renkDegeri3)
+            DirencRenkleri(height: convertSize(42), renkDegeri: renkDegeri2),
+            SizedBox(width: convertSize(10)),
+            DirencRenkleri(height: convertSize(42), renkDegeri: renkDegeri3)
           ]),
         ),
         SizedBox(
-          height: size.height * 0.41,
+          height: convertSize(300),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: convertSize(300),
+                  height: convertSize(50),
                   text: "Değer Seçiniz",
                   gelenRenkler: renklerIlkBasamak,
                   gelenRenkDegeri: renkDegeri1,
@@ -109,13 +113,13 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                       renkDegeri1 = deger1;
                     });
                   }),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: convertSize(20),
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: convertSize(300),
+                  height: convertSize(50),
                   text: "Değer Seçiniz",
                   gelenRenkler: renkler,
                   gelenRenkDegeri: renkDegeri2,
@@ -124,13 +128,13 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                       renkDegeri2 = deger2;
                     });
                   }),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: convertSize(20),
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: convertSize(300),
+                  height: convertSize(50),
                   text: "Değer Seçiniz",
                   gelenRenkler: carpan,
                   gelenRenkDegeri: renkDegeri3,
@@ -143,7 +147,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
           ),
         ),
         SizedBox(
-          height: size.height * 0.13,
+          height: convertSize(120),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -151,7 +155,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: size.width * 0.25,
+                width: convertSize(100),
                 childDegeri: "Ω",
                 color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
@@ -175,14 +179,14 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                   });
                 },
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: convertSize(20),
               ),
               Buton(
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: size.width * 0.25,
+                width: convertSize(100),
                 childDegeri: "kΩ",
                 color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
@@ -207,14 +211,14 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                   });
                 },
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: convertSize(20),
               ),
               Buton(
                 renkDegeri1: renkDegeri1,
                 renkDegeri2: renkDegeri2,
                 renkDegeri3: renkDegeri3,
-                width: size.width * 0.25,
+                width: convertSize(100),
                 childDegeri: "MΩ",
                 color: const Color.fromRGBO(140, 82, 255, 1),
                 onPressed: () {
@@ -244,15 +248,15 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
         ),
         Container(
           alignment: Alignment.center,
-          height: size.height * 0.09,
+          height: convertSize(60),
           child: Text(
             "DİRENÇ DEĞERİ : \n $deger $birim",
-            style: const TextStyle(
+            style: TextStyle(
                 // color: Colors.grey[800],
                 fontWeight: FontWeight.w700,
                 // fontStyle: FontStyle.italic,
-                fontFamily: "Poppins",
-                fontSize: 20),
+                fontFamily: 'Open Sans',
+                fontSize: convertSize(25)),
             textAlign: TextAlign.center,
           ),
         ),
