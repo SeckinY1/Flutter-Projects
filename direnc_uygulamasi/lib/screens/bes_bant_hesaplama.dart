@@ -19,7 +19,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
   double? renkDegeri2;
   double? renkDegeri3;
   double? renkDegeri4;
-  double? renkDegeri5;
+  double? renkDegeri5; // TO DO
 
   String? birim = "";
   String ifadeler = "± %";
@@ -77,59 +77,50 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(241, 143, 57, 1),
-        title: const Text(
-          " Beş Bantlı Direnç Hesaplama",
-          style: TextStyle(fontFamily: "Poppins"),
-        ),
+        title: const Text(" Beş Bantlı Direnç Hesaplama"),
       ),
       body: Column(children: [
         Container(
-          height: size.height * 0.16,
-          width: size.width * 0.76,
+          height: 120,
+          width: 300,
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/direnc.png"))),
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.only(left: 105),
-              child: DirencRenkleri(
-                  height: size.height * 0.060, renkDegeri: renkDegeri1),
+              child: DirencRenkleri(height: 42, renkDegeri: renkDegeri1),
             ),
             const SizedBox(
               width: 10,
             ),
-            DirencRenkleri(
-                height: size.height * 0.060, renkDegeri: renkDegeri2),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri2),
             const SizedBox(
               width: 10,
             ),
-            DirencRenkleri(
-                height: size.height * 0.060, renkDegeri: renkDegeri3),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri3),
             const SizedBox(
               width: 10,
             ),
-            DirencRenkleri(
-                height: size.height * 0.060, renkDegeri: renkDegeri4),
+            DirencRenkleri(height: 42, renkDegeri: renkDegeri4),
             const SizedBox(
               width: 10,
             ),
-            ToleransRenkleri(
-                height: size.height * 0.060, renkDegeri: renkDegeri5)
+            ToleransRenkleri(height: 42, renkDegeri: renkDegeri5)
           ]),
         ),
         SizedBox(
-          height: size.height * 0.41,
+          height: 300,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: 300,
+                  height: 50,
                   text: "Değer Seçiniz",
                   gelenRenkler: renklerIlkBasamak,
                   gelenRenkDegeri: renkDegeri1,
@@ -143,8 +134,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: 300,
+                  height: 50,
                   text: "Değer Seçiniz",
                   gelenRenkler: renkler,
                   gelenRenkDegeri: renkDegeri2,
@@ -158,8 +149,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: 300,
+                  height: 50,
                   text: "Değer Seçiniz",
                   gelenRenkler: renkler,
                   gelenRenkDegeri: renkDegeri3,
@@ -173,8 +164,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: 300,
+                  height: 50,
                   text: "Değer Seçiniz",
                   gelenRenkler: carpan,
                   gelenRenkDegeri: renkDegeri4,
@@ -188,8 +179,8 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               ),
               BantSecimi(
                   bgColor: const Color.fromARGB(255, 236, 234, 234),
-                  width: size.width * 0.76,
-                  height: size.height * 0.07,
+                  width: 300,
+                  height: 50,
                   text: "Değer Seçiniz",
                   gelenRenkler: tolerans,
                   gelenRenkDegeri: renkDegeri5,
@@ -202,7 +193,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
           ),
         ),
         SizedBox(
-          height: size.height * 0.13,
+          height: 120,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -212,7 +203,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
-                width: size.width * 0.25,
+                width: 100,
                 childDegeri: "Ω",
                 color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
@@ -250,7 +241,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
-                width: size.width * 0.25,
+                width: 100,
                 childDegeri: "kΩ",
                 color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
@@ -289,7 +280,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                 renkDegeri3: renkDegeri3,
                 renkDegeri4: renkDegeri4,
                 renkDegeri5: renkDegeri5,
-                width: size.width * 0.25,
+                width: 100,
                 childDegeri: "MΩ",
                 color: const Color.fromRGBO(241, 143, 57, 1),
                 onPressed: () {
@@ -324,15 +315,15 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
         ),
         Container(
           alignment: Alignment.center,
-          height: size.height * 0.09,
+          height: 60,
           child: Text(
             "DİRENÇ DEĞERİ : \n $deger $birim $toleransDegeri",
             style: const TextStyle(
                 // color: Colors.grey[800],
                 fontWeight: FontWeight.w700,
                 // fontStyle: FontStyle.italic,
-                fontFamily: "Poppins",
-                fontSize: 20),
+                fontFamily: 'Open Sans',
+                fontSize: 25),
             textAlign: TextAlign.center,
           ),
         ),

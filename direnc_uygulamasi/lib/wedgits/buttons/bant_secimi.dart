@@ -37,9 +37,8 @@ class BantSecimi extends StatelessWidget {
               text!,
               style: const TextStyle(
                   color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "Poppins"),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
             ),
             items: gelenRenkler!
                 .map((oAnkiRenk, oAnkiDeger) {
@@ -47,11 +46,7 @@ class BantSecimi extends StatelessWidget {
                       oAnkiRenk,
                       DropdownMenuItem(
                         value: oAnkiDeger,
-                        child: Text(oAnkiRenk,
-                            style: const TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 14,
-                            )),
+                        child: Text(oAnkiRenk),
                       ));
                 })
                 .values
