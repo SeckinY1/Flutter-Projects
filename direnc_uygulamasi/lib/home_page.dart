@@ -4,9 +4,14 @@ import 'package:direnc_uygulamasi/screens/dort_bant_hesaplama.dart';
 import 'package:direnc_uygulamasi/screens/uc_bant_hesaplama.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
