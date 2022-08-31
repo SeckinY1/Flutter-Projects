@@ -207,7 +207,7 @@ class ElevatedButon extends StatelessWidget {
         ),
       ),
       style: ElevatedButton.styleFrom(
-          primary: const Color.fromARGB(255, 111, 71, 41),
+          primary: const Color.fromRGBO(55, 162, 149, 1),
           fixedSize: const Size(210, 30)),
     );
   }
