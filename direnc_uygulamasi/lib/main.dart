@@ -10,6 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Resistor Calculate", home: HomePage());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Resistor Calculate",
+        home: HomePage());
   }
 }

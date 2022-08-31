@@ -17,7 +17,7 @@ class UcBantHesaplama extends StatefulWidget {
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   final BannerAd myBanner = BannerAd(
     adUnitId:
-        Platform.isAndroid ? 'ca-app-pub-3940256099942544/6300978111' : "",
+        Platform.isAndroid ? 'ca-app-pub-9897893205846439/3283764883' : "",
     size: AdSize.banner,
     request: AdRequest(),
     listener: BannerAdListener(),
