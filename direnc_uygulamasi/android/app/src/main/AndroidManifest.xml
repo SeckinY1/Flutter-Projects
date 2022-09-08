@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.direnc_uygulamasi">
    <application
-        android:label="direnc_uygulamasi"
+        android:label="Direnç Hesaplama"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
 
