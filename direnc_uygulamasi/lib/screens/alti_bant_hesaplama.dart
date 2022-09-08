@@ -132,12 +132,12 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 92),
+                  padding: EdgeInsets.only(left: size.height * 0.110),
                   child: DirencRenkleri(
                       height: size.height * 0.069, renkDegeri: renkDegeri1),
                 ),
                 const SizedBox(
-                  width: 15,
+                  width: 20,
                 ),
                 DirencRenkleri(
                     height: size.height * 0.057, renkDegeri: renkDegeri2),
@@ -157,7 +157,7 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                 ToleransRenkleri(
                     height: size.height * 0.057, renkDegeri: renkDegeri5),
                 const SizedBox(
-                  width: 20,
+                  width: 23,
                 ),
                 SicaklikRenkleri(
                     height: size.height * 0.069, renkDegeri: renkDegeri6)

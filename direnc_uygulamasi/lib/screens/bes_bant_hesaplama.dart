@@ -114,7 +114,7 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 110),
+                  padding: EdgeInsets.only(left: size.height * 0.135),
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri1),
                 ),

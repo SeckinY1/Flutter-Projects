@@ -98,7 +98,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               ),
               child: Row(children: [
                 Padding(
-                    padding: const EdgeInsets.only(left: 130),
+                    padding: EdgeInsets.only(left: size.height * 0.165),
                     child: DirencRenkleri(
                       height: size.height * 0.057,
                       renkDegeri: renkDegeri1,
