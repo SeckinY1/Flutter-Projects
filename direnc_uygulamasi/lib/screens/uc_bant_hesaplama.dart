@@ -33,7 +33,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   double? renkDegeri2;
   double? renkDegeri3;
   String? birim = "";
-  String deger = "... Ω ± % 20";
+  String deger = "... Ω";
+  String ifadeler = "± % 20";
   double? sonuc;
 
   Map<String, double> renklerIlkBasamak = {
@@ -97,19 +98,19 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               ),
               child: Row(children: [
                 Padding(
-                    padding: const EdgeInsets.only(left: 120),
+                    padding: const EdgeInsets.only(left: 130),
                     child: DirencRenkleri(
-                      height: size.height * 0.060,
+                      height: size.height * 0.057,
                       renkDegeri: renkDegeri1,
                     )),
                 const SizedBox(
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri2),
+                    height: size.height * 0.057, renkDegeri: renkDegeri2),
                 const SizedBox(width: 10),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri3)
+                    height: size.height * 0.057, renkDegeri: renkDegeri3)
               ]),
             ),
             SizedBox(
@@ -272,7 +273,7 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               alignment: Alignment.center,
               height: size.height * 0.09,
               child: Text(
-                "DİRENÇ DEĞERİ : \n $deger $birim",
+                "DİRENÇ DEĞERİ : \n $deger $birim  $ifadeler",
                 style: const TextStyle(
                     // color: Colors.grey[800],
                     fontWeight: FontWeight.w700,

@@ -114,30 +114,30 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 105),
+                  padding: const EdgeInsets.only(left: 110),
                   child: DirencRenkleri(
-                      height: size.height * 0.060, renkDegeri: renkDegeri1),
+                      height: size.height * 0.057, renkDegeri: renkDegeri1),
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri2),
+                    height: size.height * 0.057, renkDegeri: renkDegeri2),
                 const SizedBox(
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri3),
+                    height: size.height * 0.057, renkDegeri: renkDegeri3),
                 const SizedBox(
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri4),
+                    height: size.height * 0.057, renkDegeri: renkDegeri4),
                 const SizedBox(
                   width: 10,
                 ),
                 ToleransRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri5)
+                    height: size.height * 0.057, renkDegeri: renkDegeri5)
               ]),
             ),
             SizedBox(

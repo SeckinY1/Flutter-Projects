@@ -112,7 +112,7 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 115),
+                  padding: const EdgeInsets.only(left: 120),
                   child: DirencRenkleri(
                       height: size.height * 0.060, renkDegeri: renkDegeri1),
                 ),
@@ -120,17 +120,17 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri2),
+                    height: size.height * 0.057, renkDegeri: renkDegeri2),
                 const SizedBox(
                   width: 10,
                 ),
                 DirencRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri3),
+                    height: size.height * 0.057, renkDegeri: renkDegeri3),
                 const SizedBox(
                   width: 10,
                 ),
                 ToleransRenkleri(
-                    height: size.height * 0.060, renkDegeri: renkDegeri4)
+                    height: size.height * 0.057, renkDegeri: renkDegeri4)
               ]),
             ),
             SizedBox(
