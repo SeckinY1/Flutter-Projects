@@ -114,43 +114,30 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: EdgeInsets.only(
-                      left: size.width * 0.222, bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(left: size.height * 0.135),
                   child: DirencRenkleri(
-                      height: size.height * 0.07, renkDegeri: renkDegeri1),
+                      height: size.height * 0.057, renkDegeri: renkDegeri1),
                 ),
-                SizedBox(
-                  width: size.width * 0.06,
+                const SizedBox(
+                  width: 10,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
-                  child: DirencRenkleri(
-                      height: size.height * 0.057, renkDegeri: renkDegeri2),
+                DirencRenkleri(
+                    height: size.height * 0.057, renkDegeri: renkDegeri2),
+                const SizedBox(
+                  width: 10,
                 ),
-                SizedBox(
-                  width: size.width * 0.03,
+                DirencRenkleri(
+                    height: size.height * 0.057, renkDegeri: renkDegeri3),
+                const SizedBox(
+                  width: 10,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
-                  child: DirencRenkleri(
-                      height: size.height * 0.057, renkDegeri: renkDegeri3),
+                DirencRenkleri(
+                    height: size.height * 0.057, renkDegeri: renkDegeri4),
+                const SizedBox(
+                  width: 10,
                 ),
-                SizedBox(
-                  width: size.width * 0.03,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
-                  child: DirencRenkleri(
-                      height: size.height * 0.057, renkDegeri: renkDegeri4),
-                ),
-                SizedBox(
-                  width: size.width * 0.064,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
-                  child: ToleransRenkleri(
-                      height: size.height * 0.07, renkDegeri: renkDegeri5),
-                )
+                ToleransRenkleri(
+                    height: size.height * 0.057, renkDegeri: renkDegeri5)
               ]),
             ),
             SizedBox(
