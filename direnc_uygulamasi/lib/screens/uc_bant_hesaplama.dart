@@ -17,7 +17,7 @@ class UcBantHesaplama extends StatefulWidget {
 class _UcBantHesaplamaState extends State<UcBantHesaplama> {
   final BannerAd myBanner = BannerAd(
     adUnitId:
-        Platform.isAndroid ? 'ca-app-pub-9897893205846439/3283764883' : "",
+        Platform.isAndroid ? 'ca-app-pub-3940256099942544/6300978111' : "",
     size: AdSize.banner,
     request: AdRequest(),
     listener: BannerAdListener(),
@@ -98,7 +98,8 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               ),
               child: Row(children: [
                 Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.31),
+                    padding: EdgeInsets.only(
+                        left: size.width * 0.31, bottom: size.height * 0.003),
                     child: DirencRenkleri(
                       height: size.height * 0.057,
                       renkDegeri: renkDegeri1,
@@ -106,11 +107,17 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
                 SizedBox(
                   width: size.width * 0.03,
                 ),
-                DirencRenkleri(
-                    height: size.height * 0.057, renkDegeri: renkDegeri2),
+                Padding(
+                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  child: DirencRenkleri(
+                      height: size.height * 0.057, renkDegeri: renkDegeri2),
+                ),
                 SizedBox(width: size.width * 0.03),
-                DirencRenkleri(
-                    height: size.height * 0.057, renkDegeri: renkDegeri3)
+                Padding(
+                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  child: DirencRenkleri(
+                      height: size.height * 0.057, renkDegeri: renkDegeri3),
+                )
               ]),
             ),
             SizedBox(
