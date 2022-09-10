@@ -98,17 +98,17 @@ class _UcBantHesaplamaState extends State<UcBantHesaplama> {
               ),
               child: Row(children: [
                 Padding(
-                    padding: EdgeInsets.only(left: size.height * 0.165),
+                    padding: EdgeInsets.only(left: size.width * 0.31),
                     child: DirencRenkleri(
                       height: size.height * 0.057,
                       renkDegeri: renkDegeri1,
                     )),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: size.width * 0.03,
                 ),
                 DirencRenkleri(
                     height: size.height * 0.057, renkDegeri: renkDegeri2),
-                const SizedBox(width: 10),
+                SizedBox(width: size.width * 0.03),
                 DirencRenkleri(
                     height: size.height * 0.057, renkDegeri: renkDegeri3)
               ]),
