@@ -112,25 +112,35 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                       image: AssetImage("assets/images/direnc.png"))),
               child: Row(children: [
                 Padding(
-                  padding: EdgeInsets.only(left: size.height * 0.155),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.28, bottom: size.height * 0.003),
                   child: DirencRenkleri(
-                      height: size.height * 0.060, renkDegeri: renkDegeri1),
+                      height: size.height * 0.057, renkDegeri: renkDegeri1),
                 ),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: size.width * 0.031,
                 ),
-                DirencRenkleri(
-                    height: size.height * 0.057, renkDegeri: renkDegeri2),
-                const SizedBox(
-                  width: 10,
+                Padding(
+                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  child: DirencRenkleri(
+                      height: size.height * 0.057, renkDegeri: renkDegeri2),
                 ),
-                DirencRenkleri(
-                    height: size.height * 0.057, renkDegeri: renkDegeri3),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: size.width * 0.031,
                 ),
-                ToleransRenkleri(
-                    height: size.height * 0.057, renkDegeri: renkDegeri4)
+                Padding(
+                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  child: DirencRenkleri(
+                      height: size.height * 0.057, renkDegeri: renkDegeri3),
+                ),
+                SizedBox(
+                  width: size.width * 0.031,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  child: ToleransRenkleri(
+                      height: size.height * 0.057, renkDegeri: renkDegeri4),
+                )
               ]),
             ),
             SizedBox(
