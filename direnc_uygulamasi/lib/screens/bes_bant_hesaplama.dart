@@ -115,15 +115,13 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
               child: Row(children: [
                 Padding(
                   padding: EdgeInsets.only(
-                      left: size.width * 0.222, bottom: size.height * 0.003),
+                      left: size.width * 0.22, bottom: size.height * 0.003),
                   child: DirencRenkleri(
                       height: size.height * 0.07, renkDegeri: renkDegeri1),
                 ),
-                SizedBox(
-                  width: size.width * 0.06,
-                ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.06, bottom: size.height * 0.003),
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri2),
                 ),
@@ -139,12 +137,10 @@ class _BesBantHesaplamaState extends State<BesBantHesaplama> {
                   width: size.width * 0.03,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      right: size.width * 0.067, bottom: size.height * 0.003),
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri4),
-                ),
-                SizedBox(
-                  width: size.width * 0.064,
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: size.height * 0.003),
