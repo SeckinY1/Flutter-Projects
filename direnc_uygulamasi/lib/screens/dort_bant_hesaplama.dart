@@ -109,7 +109,8 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
               width: size.width * 0.76,
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/direnc.png"))),
+                      image: AssetImage("assets/images/direnc.png"),
+                      fit: BoxFit.fill)),
               child: Row(children: [
                 Padding(
                   padding: EdgeInsets.only(
@@ -117,27 +118,21 @@ class _DortBantHesaplamaState extends State<DortBantHesaplama> {
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri1),
                 ),
-                SizedBox(
-                  width: size.width * 0.031,
-                ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.033, bottom: size.height * 0.003),
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri2),
                 ),
-                SizedBox(
-                  width: size.width * 0.031,
-                ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.033, bottom: size.height * 0.003),
                   child: DirencRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri3),
                 ),
-                SizedBox(
-                  width: size.width * 0.031,
-                ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.033, bottom: size.height * 0.003),
                   child: ToleransRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri4),
                 )
