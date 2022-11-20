@@ -158,17 +158,18 @@ class _AltiBantHesaplamaState extends State<AltiBantHesaplama> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: size.width * 0.03,
-                      bottom: size.height * 0.003,
-                      right: size.width * 0.06),
+                      left: size.width * 0.03, bottom: size.height * 0.003),
                   child: ToleransRenkleri(
                       height: size.height * 0.057, renkDegeri: renkDegeri5),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.003),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.069,
+                      right: size.width * 0.05,
+                      bottom: size.height * 0.003),
                   child: SicaklikRenkleri(
                       height: size.height * 0.069, renkDegeri: renkDegeri6),
-                )
+                ),
               ]),
             ),
             SizedBox(
